@@ -6,4 +6,4 @@ docs:
   url: /
 
 - title: About
-  url: {{site.url}}about.html
+  url: https://hanbin973.github.io/about.html
