@@ -5,6 +5,10 @@ description:
     "Mostly genetics and epidemiology" 
 show_excerpts: true # set to true to show excerpts on the homepage
 
+# base url
+url: "https://hanbin973.github.io"
+baseurl: ""
+
 # Minima date format
 # refer to http://shopify.github.io/liquid/filters/date/ if you want to customize this
 sass:
