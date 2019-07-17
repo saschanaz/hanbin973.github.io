@@ -1,4 +1,0 @@
-"0","df <- melt(df, id=""N"")
-"
-"2","Error in melt(df, id = ""N"") : 함수 ""melt""를 찾을 수 없습니다
-"
