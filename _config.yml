@@ -6,8 +6,9 @@ description:
 show_excerpts: true # set to true to show excerpts on the homepage
 
 # base url
+markdown: kramdown
 url: https://hanbin973.github.io
-baseurl: 
+baseurl: ""
 
 # Minima date format
 # refer to http://shopify.github.io/liquid/filters/date/ if you want to customize this
