@@ -1,15 +1,18 @@
 ---
 title: "성평등의 역설"
+categories: 
+- Epidemiology
 author: "Hanbin Lee"
+date: "2019년 3월 16일"
 output: md_document
 bibliography: ecofall.bib
-categories:
-- "Evolutionary Psychology"
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(fig.path="../../img/ecofall/")
 ```
+
 * 이 문서는 Rmarkdown을 사용하여 작성됐습니다.
 
 # 성평등의 역설: 생태적 오류는 어떻게 발생하는가?

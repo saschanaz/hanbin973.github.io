@@ -2,6 +2,7 @@
 
 # get folder name from input argument
 folder.name <- commandArgs(trailingOnly=TRUE)[1]
+cat <- commandArgs(trailingOnly=TRUE)[2]
 
 # set directory of jekyll blog
 base <- "/home/hanbin973/hanbin973.github.io/"
@@ -19,6 +20,7 @@ posts.path <- "_posts/"
 
 # start
 require(knitr)
+require(rmarkdown)
 render_jekyll(highlight="pygments")
 opts_knit$set(base.url="/")
 
@@ -26,16 +28,17 @@ file <- paste0(rmds, "/", folder.name, "/", filename)
 
 # set filepath
 fig.path <- paste0(figs.path, folder.name, "/")
-opts_chunk$set(fig.path=fig.path)
+print(fig.path)
 
-# suppress messages
-opts_chunk$set(cache=F, warning=F, message=F, cache.path="_cache/", tidy=F)
+# create md
+obj <- rmarkdown::render(file)
+out.file <- basename(obj)
 
 # output name
 out.name <- paste0(date, "-", folder.name, ".md")
 
-# create md
-out.file <- basename(knit(file))
+# add meta data to file
 
 # save it at _posts/
-file.rename(out.file, paste0(posts.path, out.name))
+file.rename(paste0(rmds, "/", folder.name, "/", out.file), paste0(posts.path, out.name))
+
