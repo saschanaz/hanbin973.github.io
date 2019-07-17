@@ -5,6 +5,19 @@
 # For technical reasons, this file is *NOT* reloaded automatically when you use
 # 'jekyll serve'. If you change this file, please restart the server process.
 
+# Site settings
+title: Hanbin Lee
+email: hanbin973@gmail.com
+description: > # this means to ignore newlines until "baseurl:"
+    Mostly about genetics and epidemiology
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://hanbin973.github.io" # the base hostname & protocol for your site
+twitter_username: HAAANBIN
+github_username:  hanbin973
+
+# Build settings
+markdown: kramdown
+
 # Theme settings
 remote_theme: thelehhman/plainwhite-jekyll
 
@@ -21,16 +34,3 @@ plainwhite:
     # disqus and google anal
     disqus_shortname: hanbin973 
     analytics_id: '128593793'
-
-# Site settings
-title: Hanbin Lee
-email: hanbin973@gmail.com
-description: > # this means to ignore newlines until "baseurl:"
-    Mostly about genetics and epidemiology
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://hanbin973.github.io" # the base hostname & protocol for your site
-twitter_username: HAAANBIN
-github_username:  hanbin973
-
-# Build settings
-markdown: kramdown
