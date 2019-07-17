@@ -1,7 +1,7 @@
 title: Hanbin Lee
 author: Hanbin Lee
 email: hanbin973@gmail.com
-description: > # this means to ignore newlines until "show_exerpts:"
+description:
     Mostly genetics and epidemiology 
 show_excerpts: true # set to true to show excerpts on the homepage
 
