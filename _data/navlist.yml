@@ -6,4 +6,4 @@ docs:
   url: /
 
 - title: About
-  url: /about.html
+  url: {{site.url}}about.html
