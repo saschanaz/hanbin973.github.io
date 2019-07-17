@@ -1,8 +1,8 @@
-title: Hanbin Lee
-author: Hanbin Lee
-email: hanbin973@gmail.com
+title: "Hanbin Lee"
+author: "Hanbin Lee"
+email: "hanbin973@gmail.com"
 description:
-    Mostly genetics and epidemiology 
+    "Mostly genetics and epidemiology" 
 show_excerpts: true # set to true to show excerpts on the homepage
 
 # Minima date format
@@ -40,15 +40,15 @@ plainwhite:
     #   instance: example.com
     # - username: jekyll2
     #   instance: example.com
-    #
+    
     
     disqus_shortname: hanbin973 
     analytics_id: '128593793'
 
- If you want to link only specific pages in your header, uncomment
- this and add the path to the pages in order as they should show up
-header_pages:
- - about.md
+ #If you want to link only specific pages in your header, uncomment
+ #this and add the path to the pages in order as they should show up
+#header_pages:
+# - about.md
 
 # Build settings
 remote_theme: hanbin973/plainwhite-jekyll
