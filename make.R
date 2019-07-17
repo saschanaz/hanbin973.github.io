@@ -44,6 +44,10 @@ file.rename(paste0(rmds, "/", folder.name, "/", out.file), paste0(posts.path, ou
 
 # move image folder
 from <- paste0(rmds, "/", folder.name, "/", "assets/img", "/", folder.name)
-to <- paste0("assets/img", "/", folder.name)
+to <- paste0("~/hanbin973.github.io/assets/img/", folder.name)
+
+print(from)
+print(to)
+
 file.move(from, to)
 

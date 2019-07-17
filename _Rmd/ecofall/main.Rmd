@@ -35,15 +35,12 @@ tbl <- tbl %>% mutate(income=3*EA+bl+rnorm(n=nsam,sd=5))
 tbl2 <- tbl %>% group_by(country) %>% summarize(mean_EA=mean(EA), mean_income=mean(income))
 ```
 
-\center
-
-```{r, echo=FALSE}
+```{r, echo=FALSE, fig.align='center'}
 p1 <- ggplot(tbl, aes(x=EA, y=income, color=country)) + geom_point(shape=1) + geom_smooth(method=lm) + ylab('Income') + xlab('Educational Attainment')
 p2 <- ggplot(tbl2, aes(x=mean_EA, y=mean_income, color=country)) + geom_smooth(method=lm, size=0.5, color='grey') + ylab('Income') + xlab('Educational Attainment') + geom_point(shape=19)
 grid.arrange(p1, p2, nrow=1)
 ```
 
-\center
 
 좌측 그림은 각 국가별(색깔로 구분)로 교육수준(Educational Attainment)에 따른 소득수준(Income)을 나타낸 것입니다.
 그림에서 볼 수 있듯이 각 국가 안에서는 교육수준이 증가할수록 소득수준이 증가하는 것을 관찰할 수 있습니다.
