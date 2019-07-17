@@ -5,6 +5,23 @@
 # For technical reasons, this file is *NOT* reloaded automatically when you use
 # 'jekyll serve'. If you change this file, please restart the server process.
 
+# Theme settings
+remote_theme: thelehhman/plainwhite-jekyll
+
+# Plainwhite settings
+plainwhite:
+    name: Hanbin Lee
+    tagline: Genetics, Epidemiology
+    date_format: "%b %-d, %Y"
+
+    social_links:
+        twitter: HAAANBIN
+        github: hanbin973
+
+    # disqus and google anal
+    disqus_shortname: hanbin973 
+    analytics_id: '128593793'
+
 # Site settings
 title: Hanbin Lee
 email: hanbin973@gmail.com
@@ -16,7 +33,6 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://hanbin973.github.io" # the base hostname & protocol for your site
 twitter_username: @HAAANBIN
 github_username:  hanbin973
-remote_theme: thelehhman/plainwhite-jekyll
 
 # Build settings
 markdown: kramdown
