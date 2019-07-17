@@ -1,13 +1,9 @@
 title: "Hanbin Lee"
-author: "Hanbin Lee"
 email: "hanbin973@gmail.com"
 description:
     "Mostly genetics and epidemiology" 
 show_excerpts: true # set to true to show excerpts on the homepage
 
-# base url
-markdown: kramdown
-url: https://hanbin973.github.io/
 
 # Minima date format
 # refer to http://shopify.github.io/liquid/filters/date/ if you want to customize this
@@ -16,7 +12,7 @@ sass:
 plainwhite:
   name: "Hanbin Lee" 
   tagline: Genetics. Epidemiology
-  date_format: "%b %-d, %Y"
+  date_format: "%b %d, %Y"
   sitemap: true # set to true to generate sitemap.xml content
 
   # generate social links in footer
@@ -24,7 +20,6 @@ plainwhite:
     twitter: HAAANBIN
     github:  hanbin973
     linkedIn: in/hanbin-lee-4b5617118
-    rss: rss
     # dribbble: jekyll
     # facebook: jekyll
     # flickr:   jekyll
@@ -45,7 +40,6 @@ plainwhite:
     # - username: jekyll2
     #   instance: example.com
     
-    
     disqus_shortname: hanbin973 
     analytics_id: '128593793'
 
@@ -56,3 +50,8 @@ plainwhite:
 
 # Build settings
 remote_theme: hanbin973/plainwhite-jekyll 
+
+# base url
+markdown: kramdown
+url: https://hanbin973.github.io/
+
