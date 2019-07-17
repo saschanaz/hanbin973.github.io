@@ -2,7 +2,6 @@
 
 # get folder name from input argument
 folder.name <- commandArgs(trailingOnly=TRUE)[1]
-cat <- commandArgs(trailingOnly=TRUE)[2]
 
 # set directory of jekyll blog
 base <- "/home/hanbin973/hanbin973.github.io/"
@@ -21,6 +20,7 @@ posts.path <- "_posts/"
 # start
 require(knitr)
 require(rmarkdown)
+require(ff)
 render_jekyll(highlight="pygments")
 opts_knit$set(base.url="/")
 
@@ -41,4 +41,9 @@ out.name <- paste0(date, "-", folder.name, ".md")
 
 # save it at _posts/
 file.rename(paste0(rmds, "/", folder.name, "/", out.file), paste0(posts.path, out.name))
+
+# move image folder
+from <- paste0(rmds, "/", folder.name, "/", "img", "/", folder.name)
+to <- paste0("img", "/", folder.name)
+file.move(from, to)
 
