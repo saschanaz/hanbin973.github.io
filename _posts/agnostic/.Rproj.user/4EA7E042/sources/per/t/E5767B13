@@ -1,0 +1,24 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1552191428520.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1634213394",
+    "id" : "E5767B13",
+    "lastKnownWriteTime" : 1552199068,
+    "last_content_update" : 1552199068,
+    "path" : "~/hanbin973.github.io/agnostic/main.Rmd",
+    "project_path" : "main.Rmd",
+    "properties" : {
+        "cursorPosition" : "137,0",
+        "last_setup_crc32" : "",
+        "scrollLine" : "123",
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

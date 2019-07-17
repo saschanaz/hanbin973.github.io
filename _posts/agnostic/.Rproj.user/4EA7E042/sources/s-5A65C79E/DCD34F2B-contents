@@ -1,0 +1,190 @@
+---
+title: "Hypothesis-Free 개론"
+author: "Hanbin Lee"
+date: "2019년 3월 10일"
+output: html_document
+bibliography: agnostic.bib
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+* 이 문서는 Rmarkdown을 사용하여 작성됐습니다.
+
+# Hypothesis-Free의 필요성: Genetic Association Study를 중심으로
+
+*Hypothesis-Free*는 최근 유전학(Genetics)와 역학(Epidemiology) 분야에서 자주 보이는 용어 중 하나입니다.
+유전학에서는 Genome-Wide Association Study(GWAS), 환경역학에서는 Exposure-Wide Association Study(EWAS) 등의 형태로 많이 소개됩니다.
+비슷한 것들로 Epigenome-Wide, Environment-Wide 등이 있습니다.
+입자물리학을 전공하는 지인에 따르면 자기 분야에서도 오래 전부터 제기된 방법론이라고 하네요.
+이 단락에서는 Genetic Association Study의 사례를 중심으로 왜 Hypothesis-Free 연구가 대두되었는지 설명하겠습니다.
+
+## Candidate-Gene Approach: 가설 기반 연구의 한계
+유전자와 형질 사이의 관계는 오랫동안 과학자들의 관심사였습니다.
+특히, 저 같이 의학을 전공하는 사람들에게는 질병의 원인이 되는 유전자를 찾는 것이 굉장히 중요한 문제였습니다.
+그러나 1953년에 DNA가 발견된 뒤에도 이것은 굉장히 오랫동안 어려운 과제로 남았습니다.
+왜냐하면 DNA 정보를 읽는 것이 굉장히 어려웠기 때문입니다.
+그러나 잘 알려져 있다시피 Sanger 등에 의해 DNA 염기서열을 읽을 수 있는 방법들이 연이어 개발됐고 이에 힘업어 유전자-형질 관계를 밝히고자 하는 연구들이 등장했습니다. 대표적인 사례가 바로 *APOE* 라는 유전자로 치매(정확히는 알츠하이머)와 관련이 되었음이 일찍히 밝혀졌습니다[@Strittmatter1993].
+
+이러한 연구들의 특징 중 하나는 유전체(Genome)의 일부만을 읽었다는 점입니다.
+DNA를 읽을 수 있는 기술이 개발되었음에도 기술적인 난도와 엄청난 비용 때문에 유전체 전체를 읽을 수 있는 방법이 없었기 때문입니다.
+따라서 연구자들은 선행연구를 바탕으로 질병과 관련이 있을 것으로 추정되는 유전자들을 미리 선별한 다음 그 유전자들의 정보만 읽는 방법을 택했습니다.
+이를 Candidate-Gene Approach라고 하는데 우리말로 후보-유전자 방법이라고 합니다.
+이름에서 알 수 있는 것처럼 후보가 될만한 유전자를 추려서 그 유전자들만 조사하는 방법입니다.
+
+그러나 2000년대 초반을 지나면서 Candidate-Gene Approach의 한계를 지적하는 연구들이 쏟아지기 시작합니다.
+가장 핵심적인 비판점 중 하나는 Candidate-Gene Approach를 통해 이뤄진 연구들이 재현되지 않는다는 사실이었습니다.
+이는 후속 연구에서 기존 연구 결과가 반복적으로 확인되지 않는다는 뜻입니다[@Hirschhorn2002; @Ioannidis2005; @Lohmueller2003].
+특히 @Hirschhorn2002 에서는 Candidate-Gene Approach에 기반하는 166개의 연구를 조사한 결과 오직 6개만이 재현(75% 이상 재현)되며 97개는 오직 한 번만, 그리고 63개는 단 한 번도 재현되지 않는다는 것을 확인했습니다. 
+이로인해 Candidate-Gene Approach는 신뢰할 수 없는 방법론이라는 것이 점점 알려지게 됩니다.
+
+그러면 왜 Candidate-Gene Approach는 재현성 문제에 시달릴 수 밖에 없었던 것일까요?
+여기에는 굉장히 많은 이유가 있으나 두 가지만 소개하도록 하겠습니다.
+더 자세한 논의는 Statistical Genetics [@benjaminneale2008]를 읽어주세요.
+
+### 원인 1: Population Substructure/Admixture
+O형이 다른 혈액형보다 청국장을 싫어한다면 이를 믿으시겠습니까?
+그러나 이 허무맹랑한 주장을 통계적으로 입증할 방법이 있습니다.
+
+<center>
+![그림1. 국가별 혈액형 분포](img/bldtype.png)
+
+</center>
+
+위 사진은 국가별 혈액형 분포를 보여주고 있습니다.
+출처는 TV 예능이니 예시를 위한 Toy Model 정도로만 생각해주세요.
+
+저는 연구를 위해 한국인 100명, 페루 원주민 100명을 선발했습니다.
+저는 다음의 회귀분석을 시행할 것입니다.
+
+$$ logit(y_{청국장좋아함}) = \beta_{O형} \cdot x_{O형} + c(상수)+ \epsilon $$
+
+즉, O형인가 여부에 따라 청국장을 얼마나 더 좋아하는지 알아보는 것입니다. 
+만약 O형이 청국장을 싫어한다면 $\beta_{O형}$은 음수겠죠.
+한국인 중 청국장을 좋아하는 사람을 50%라고 가정하고 페루 원주민 중에는 먹어본 사람이 거의 없을테니 5%라고 가정하겠습니다.
+이 때 회귀분석의 결과는 어떻게 될까요?
+
+```{r }
+# 한국인 샘플링: 청국장 선호와 혈액형은 독립
+x.kor <- rbinom(100, 1, 0.28) # O형은 28%
+y.kor <- rbinom(100, 1, 0.5) # 청국장 좋아하는 사람 50%
+
+# 페루 원주민 샘플링: 청국장 선호와 혈액형은 독립
+x.per <- rbinom(100, 1, 0.95) # O형 95%
+y.per <- rbinom(100, 1, 0.05) # 청국장 좋아하는 사람 5%
+
+# 회귀분석
+x <- c(x.kor, x.per)
+y <- c(y.kor, y.per)
+fit <- glm(y~x, family="binomial")
+print(summary(fit))
+```
+분석 결과 O형은 다른 혈액형과 비교했을 때 평균적으로 9배 더 청국장을 싫어하며(~$e^{-2}$) P-value는 $1x10^{-8}$ 이하로 매우 유의한 것을 관찰할 수 있습니다.
+
+그런데 이 분석을 한국인과 페루인에서 따로 진행하면 어떤 결과가 나올까요?
+
+```{r }
+# 회귀분석
+fit.kor <- glm(y.kor~x.kor, family="binomial")
+fit.per <- glm(y.per~x.per, family="binomial")
+print(summary(fit.kor))
+print(summary(fit.per))
+```
+보시다시피 단 한 개도 유의하지 않은 것을 관찰할 수 있습니다.
+데이터를 만들 때 종속변수(청국장선호)와 독립변수(O형여부)가 독립이 되도록 했으니 당연한 일입니다.
+문제는 두 집단에 대한 분석을 하나의 데이터로 합쳤을 때 발생했죠.
+
+그런데 이런 문제는 Association Study에서 항상 발생합니다.
+진화적으로 오래 전에 분기한 두 집단을 한 데이터에 포함했기 때문이죠.
+페루 원주민과 한국인을 섞어서 분석한 상단의 사례처럼 말입니다.
+O형 유전자가 아니더라도 한국인에서 페루인보다 적게 발견되는 유전자를 분석에 넣으면 항상 그 유전자가 청국장 선호도를 감소시킨다는 결과를 얻을 것입니다.
+이 현상의 가장 큰 원인은 바로 *유전적 부동(Genetic Drift)
+*입니다.
+아무런 요소가 개입하지 않더라도 집단의 유전자 빈도(Gene Frequency)는 무작위로 오르내립니다.
+주식시장에서 주가가 출렁이는 것처럼 말이죠(실제로 유전자 빈도를 연구하는 수학은 주식시장에서 주가를 예측하는 수학과 동일합니다).
+그 결과 우연히 두 집단 사이의 유전자 빈도가 달라질 경우에는 상단의 결과처럼 이상한 결과를 얻는 것입니다.
+따라서 정확한 분석 결과를 얻기 위해서는 한국인과 페루 원주민을 분리해서 분석했던 것처럼 비슷한 집단 안에서만 분석을 진행해야합니다.
+
+그런데 한 나라 안에서도 굉장히 다양한 집단에서 유래한 사람들이 삽니다.
+전 대륙의 사람들이 모이는 미국은 말할 것도 없고 같은 유럽 백인 안에서도 상당한 차이가 있습니다[@Berg2018].
+고대부터 몽골, 거란, 여진 등의 침략을 끊임없이 받아온 한국도 크게 다르지 않을 것입니다.
+이러한 유전적 차이를 Ancestry라고 부르고 서로 다른 Ancestry를 가진 사람들이 섞여 있는 것을 Population Substructure이나 Population Admixture이라고 부릅니다(Substructure은 단순히 같이 섞여 살기만 하는 것, Admixture은 섞여 살면서 발생한 혼혈이 다수 존재하는 것을 말합니다).
+문제는 데이터에 서로 다른 Ancestry를 가진 사람들이 섞여있는지 알 방법이 없다는 점입니다.
+
+### 원인 2: Publication Bias
+다른 원인 중 하나는 바로 *Publication Bias(출판편향)*입니다.
+연구자들이 연구를 하다가 결과가 마음에 들면 출판을 하고 마음에 안 들면 출판하지 않아 발생하는 편향입니다.
+예를 들어, 물약 A가 치매 치료에 효과가 있다는 연구가 100번 이뤄졌는데 50번은 효과가 있으며 50번은 효과가 없다는 결과가 나왔다고 가정합시다.
+이 때 효과가 있다는 논문만 출판될 경우 바깥에서 보는 사람들은 물약 A가 효과가 있다고 믿게 되겠죠.
+
+학계에 존재하는 Publication Bias는 오래 전부터 제기되었습니다.
+의학의 경우[@Perneger2017], 심리학의 경우[@Schimmack2012] 등 학문과 분야를 가리지 않고 폭넓게 발견되는 현상입니다.
+그 원인에 대해서는 다양한 논의가 있으나 여기서는 생략토록 하겠습니다.
+중요한 것은 Candidate-Gene Approach도 이로부터 자유롭지 않다는 점입니다.
+
+## Genome-Wide Association Study (GWAS)의 등장
+
+Candidate-Gene Approach를 어떻게 극복할 것인가를 두고 많은 논의가 있었고 기술적 발전에 힘업어 Genome-Wide Association Study (GWAS)가 제안됩니다.
+GWAS는 이름처럼 유전체의 모든 유전자와 형질의 관계를 확인하는 방식입니다.
+특정 후보 유전자만 골라서 검정하는 방식과 대조적이죠.
+이는 유전체 전체(Genome-Wide)를 읽을 수 있는 SNP Microarray 등이 개발되면서 가능해졌습니다.
+이러한 기술은 최근 들어 더욱 발전하여 WES(Whole Exome Sequencing)나 WGS(Whole Genome Seqeuencing) 등으로 이어지고 있습니다.
+GWAS의 강점 중 하나는 바로 높은 재현성과 신뢰도입니다.
+Candidate-Gene Approach와 다르게 반복된 연구에서 지속적으로 확인되는 탄탄함을 갖췄다는 점입니다[@Visscher2017].
+그렇다면 GWAS는 어떻게 Candidate-Gene Approach의 한계를 극복할 수 있었을까요?
+
+
+### Publication Bias에 대한 저항성
+GWAS는 단일 연구로도 Publication Bias에 대한 저항성을 갖고 있습니다.
+왜냐하면 모든 유전자에 대해서 검정을 진행하기 때문에 어떤 유전자는 보고하고 어떤 유전자는 보고 안 하는 밑장빼기가 원천적으로 불가능하기 때문입니다.
+
+### Population Substructure 탐지
+
+#### Quantile-Quantile Plot (QQ-plot)
+대부분의 유전자는 형질과 상관이 없거나 매우 작은 영향만 미칩니다.
+따라서 유전자와 형질의 관계를 측정하다보면 대부분의 유전자는 형질과 상관없는 것으로 나와야겠죠.
+문제는 population substructure가 존재할 경우 상관없는 유전자들이 상관이 있다고 나온다는 점입니다.
+우리는 이미 혈액형-청국장을 예시로 이 현상을 확인한 바 있습니다.
+그렇다면 연구에서 발견한 유전자-형질 상관관계가 진짜인지 population substructure에 의한 가짜인지 구분할 필요가 있으며 GWAS에서는 Candidate-Gene Approach와 다르게 이 일이 가능합니다.
+
+하단의 그림은 유전체 분석 플랫폼인 [Hail](https://hail.is/)의 Documentation에서 가져온 그림입니다.
+
+<center>
+![그림 2. Population substructure이 존재하는 GWAS 분석 결과를 요약한 QQ-plot](img/hail1.png)
+
+</center>
+
+QQ-plot은 각각의 유전자에 대한 검정의 실제 p-value를 $y$-축, 영 가설 하에서의 p-value의 기댓값을 $x$-축에 두고 점을 찍은 그림입니다.
+우리가 기대하는 것처럼 대부분의 유전자가 형질과 상관이 없다면 대부분의 점은 빨간색 선 위에 올라가야 합니다.
+그런데 그림 2에서 보시다시피 대부분 점들이 빨간선을 벗어난 것을 볼 수 있습니다.
+즉, 해당 결과는 실제로 존재하는 유전자-형질 상관관계가 아니라 population substructure에 의한 가짜 신호라는 것을 알 수 있습니다.
+
+Candidate-Gene Approach의 경우 그림에 찍을 수 있는 점이 하나 밖에 없기 때문에 그 점이 실제 유전자-형질 상관관계 때문에 예외적으로 빨간색 선에서 벗어난 것인지 population substructure에 의해 다 같이 벗어난 점 중 하나인지 알 수가 없죠.
+반면, GWAS는 점을 여러 개 찍을 수 있기 때문에 전체적인 분포를 보고 우리가 발견한 상관관계가 진짜인지 아닌지 판단할 수 있는 하나의 기준을 제시해줍니다.
+
+#### Principal Component Analysis (PCA)
+Population substructure가 존재한다는 것을 알았다면 이를 고칠 방법이 필요합니다.
+이 때 흔히 쓰는 방법이 Principal Component Analysis (PCA)로 굉장히 효율적으로 population structure을 보정할 수 있다는 것이 알려져 있습니다[@Price2006].
+최근 연구에 따르면 PCA 역시 상황에 따라서 몇 가지 한계가 있긴 합니다[@Berg2018].
+그럼 다시 Hail의 Documentation에 등장하는 그림으로 넘어갑시다.
+
+<center>
+![그림 3. Population substructure을 보정한 GWAS 분석 결과를 요약한 QQ-plot](img/hail2.png)
+
+</center>
+
+그림 2와 다르게 그림 3의 경우 검은점들이 대부분 붉은선 위에 올라가 있는 것을 관찰할 수 있습니다.
+우리가 기대했던 것과 일치하는 결과입니다.
+이 경우에는 벗어난 점들이 population substructure이 아니라 실제 유전자-형질 상관관계에 의한 것일 가능성이 대단히 높습니다.
+
+#### Linkage Disequilibrium Score Regression (LD score regression)
+
+### Sampling Scheme의 안정화
+
+#### 충분한 검정력 (Power)
+
+#### 다중비교 (Multiple Comparison)
+
+
+
+## 참고문헌

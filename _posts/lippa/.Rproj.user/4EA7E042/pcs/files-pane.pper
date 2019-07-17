@@ -1,0 +1,9 @@
+{
+    "path" : "~/lippa",
+    "sortOrder" : [
+        {
+            "ascending" : true,
+            "columnIndex" : 2
+        }
+    ]
+}

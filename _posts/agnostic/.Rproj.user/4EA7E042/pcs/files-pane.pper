@@ -1,0 +1,9 @@
+{
+    "path" : "~/agnostic",
+    "sortOrder" : [
+        {
+            "ascending" : true,
+            "columnIndex" : 2
+        }
+    ]
+}
