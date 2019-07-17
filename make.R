@@ -43,7 +43,7 @@ out.name <- paste0(date, "-", folder.name, ".md")
 file.rename(paste0(rmds, "/", folder.name, "/", out.file), paste0(posts.path, out.name))
 
 # move image folder
-from <- paste0(rmds, "/", folder.name, "/", "img", "/", folder.name)
-to <- paste0("img", "/", folder.name)
+from <- paste0(rmds, "/", folder.name, "/", "assets/img", "/", folder.name)
+to <- paste0("assets/img", "/", folder.name)
 file.move(from, to)
 

@@ -10,7 +10,7 @@ bibliography: ecofall.bib
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
-knitr::opts_chunk$set(fig.path="img/ecofall/")
+knitr::opts_chunk$set(fig.path="assets/img/ecofall/")
 ```
 
 * 이 문서는 Rmarkdown을 사용하여 작성됐습니다.
