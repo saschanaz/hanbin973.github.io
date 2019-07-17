@@ -1,5 +1,5 @@
 ---
-layout: home
+layout: page
 ---
 
 유전학과 역학에 관심이 많은 학부생입니다.
