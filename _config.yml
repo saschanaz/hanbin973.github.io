@@ -55,4 +55,4 @@ plainwhite:
 # - about.md
 
 # Build settings
-remote_theme: mattvh/jekyllthemes   
+remote_theme: hanbin973/plainwhite-jekyll 
