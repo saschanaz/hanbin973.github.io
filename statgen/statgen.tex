@@ -194,12 +194,48 @@ Inspecting the first term, \[\begin{aligned}
 \end{aligned}\]
 \EndKnitrBlock{proof}
 
+\section{Bivariate LDSC}\label{bivariate-ldsc}
+
+\section{Partitioned LDSC}\label{partitioned-ldsc}
+
 \chapter{Mendelian Randomization}\label{mendelian-randomization}
 
 Mendelian Randomization (MR) is a special case of the Instrumental
 Variable (IV) which is widely used in econometrics. MR employs genetic
 variants (e.g.~SNP) as IVs since genotypes are automatically randomized
 in the gametic phase of cell division.
+
+\section{Instrumental Variable (IV)}\label{instrumental-variable-iv}
+
+A \(l \times 1\) random vector \(\mathbf{z_i}\) is an instrumental
+variable if
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \(\E(\mathbf{z_i} e_i) = 0\)
+\item
+  \(\E(\mathbf{z_i z_i} ^T) = 0\)
+\item
+  \(\mathrm{rank} \, \E(\mathbf{z_i x_i}^T) = k\)
+\end{enumerate}
+
+holds \citep{brucehansen}.
+
+From this we have \[\begin{aligned}
+  0 &= \E[\mathbf{z_i} e_i] \\
+    &= \E[\mathbf{z_i} (y_i - \mathbf{x_i}^T\mathbf{\beta})] \\
+    &= \E[\mathbf{z_i}y_i] - \E[\mathbf{z_ix_i}^T] \mathbf{\beta}
+\end{aligned}\]
+
+Rearranging the above gives \[
+\mathbf{\beta} = \E[\mathbf{z_ix_i}^T] ^{-1} \E[\mathbf{z_i} y_i]
+\]
+
+suggesting the \textbf{IV estimator} \[
+\mathbf{\hat{\beta}_{iv}} = (Z^TX)^{-1}(Z^T\mathbf{y})
+\] that is consistent at a large \(n \rightarrow \infty\) limit.
 
 \section{Simple MR}\label{simple-mr}
 

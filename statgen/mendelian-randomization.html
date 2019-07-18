@@ -70,13 +70,16 @@
 <li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introduction</a></li>
 <li class="chapter" data-level="3" data-path="linkage-disequilibrium-score-regression-ldsc.html"><a href="linkage-disequilibrium-score-regression-ldsc.html"><i class="fa fa-check"></i><b>3</b> Linkage Disequilibrium Score Regression (LDSC)</a><ul>
 <li class="chapter" data-level="3.1" data-path="linkage-disequilibrium-score-regression-ldsc.html"><a href="linkage-disequilibrium-score-regression-ldsc.html#univariate-ldsc"><i class="fa fa-check"></i><b>3.1</b> Univariate LDSC</a></li>
+<li class="chapter" data-level="3.2" data-path="linkage-disequilibrium-score-regression-ldsc.html"><a href="linkage-disequilibrium-score-regression-ldsc.html#bivariate-ldsc"><i class="fa fa-check"></i><b>3.2</b> Bivariate LDSC</a></li>
+<li class="chapter" data-level="3.3" data-path="linkage-disequilibrium-score-regression-ldsc.html"><a href="linkage-disequilibrium-score-regression-ldsc.html#partitioned-ldsc"><i class="fa fa-check"></i><b>3.3</b> Partitioned LDSC</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="mendelian-randomization.html"><a href="mendelian-randomization.html"><i class="fa fa-check"></i><b>4</b> Mendelian Randomization</a><ul>
-<li class="chapter" data-level="4.1" data-path="mendelian-randomization.html"><a href="mendelian-randomization.html#simple-mr"><i class="fa fa-check"></i><b>4.1</b> Simple MR</a></li>
-<li class="chapter" data-level="4.2" data-path="mendelian-randomization.html"><a href="mendelian-randomization.html#two-sample-mr"><i class="fa fa-check"></i><b>4.2</b> Two-sample MR</a></li>
-<li class="chapter" data-level="4.3" data-path="mendelian-randomization.html"><a href="mendelian-randomization.html#mr-egger"><i class="fa fa-check"></i><b>4.3</b> MR-Egger</a></li>
-<li class="chapter" data-level="4.4" data-path="mendelian-randomization.html"><a href="mendelian-randomization.html#weighted-median-mr"><i class="fa fa-check"></i><b>4.4</b> Weighted Median MR</a></li>
-<li class="chapter" data-level="4.5" data-path="mendelian-randomization.html"><a href="mendelian-randomization.html#modal-based-mr"><i class="fa fa-check"></i><b>4.5</b> Modal Based MR</a></li>
+<li class="chapter" data-level="4.1" data-path="mendelian-randomization.html"><a href="mendelian-randomization.html#instrumental-variable-iv"><i class="fa fa-check"></i><b>4.1</b> Instrumental Variable (IV)</a></li>
+<li class="chapter" data-level="4.2" data-path="mendelian-randomization.html"><a href="mendelian-randomization.html#simple-mr"><i class="fa fa-check"></i><b>4.2</b> Simple MR</a></li>
+<li class="chapter" data-level="4.3" data-path="mendelian-randomization.html"><a href="mendelian-randomization.html#two-sample-mr"><i class="fa fa-check"></i><b>4.3</b> Two-sample MR</a></li>
+<li class="chapter" data-level="4.4" data-path="mendelian-randomization.html"><a href="mendelian-randomization.html#mr-egger"><i class="fa fa-check"></i><b>4.4</b> MR-Egger</a></li>
+<li class="chapter" data-level="4.5" data-path="mendelian-randomization.html"><a href="mendelian-randomization.html#weighted-median-mr"><i class="fa fa-check"></i><b>4.5</b> Weighted Median MR</a></li>
+<li class="chapter" data-level="4.6" data-path="mendelian-randomization.html"><a href="mendelian-randomization.html#modal-based-mr"><i class="fa fa-check"></i><b>4.6</b> Modal Based MR</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
@@ -102,21 +105,48 @@
 <div id="mendelian-randomization" class="section level1">
 <h1><span class="header-section-number">Chapter 4</span> Mendelian Randomization</h1>
 <p>Mendelian Randomization (MR) is a special case of the Instrumental Variable (IV) which is widely used in econometrics. MR employs genetic variants (e.g. SNP) as IVs since genotypes are automatically randomized in the gametic phase of cell division.</p>
+<div id="instrumental-variable-iv" class="section level2">
+<h2><span class="header-section-number">4.1</span> Instrumental Variable (IV)</h2>
+<p>A <span class="math inline">\(l \times 1\)</span> random vector <span class="math inline">\(\mathbf{z_i}\)</span> is an instrumental variable if</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\({\mathbb{E}}(\mathbf{z_i} e_i) = 0\)</span></li>
+<li><span class="math inline">\({\mathbb{E}}(\mathbf{z_i z_i} ^T) = 0\)</span></li>
+<li><span class="math inline">\(\mathrm{rank} \, {\mathbb{E}}(\mathbf{z_i x_i}^T) = k\)</span></li>
+</ol>
+<p>holds <span class="citation">(Hansen <a href="#ref-brucehansen">2000</a>)</span>.</p>
+<p>From this we have <span class="math display">\[\begin{aligned}
+  0 &amp;= {\mathbb{E}}[\mathbf{z_i} e_i] \\
+    &amp;= {\mathbb{E}}[\mathbf{z_i} (y_i - \mathbf{x_i}^T\mathbf{\beta})] \\
+    &amp;= {\mathbb{E}}[\mathbf{z_i}y_i] - {\mathbb{E}}[\mathbf{z_ix_i}^T] \mathbf{\beta}
+\end{aligned}\]</span></p>
+<p>Rearranging the above gives <span class="math display">\[
+\mathbf{\beta} = {\mathbb{E}}[\mathbf{z_ix_i}^T] ^{-1} {\mathbb{E}}[\mathbf{z_i} y_i]
+\]</span></p>
+<p>suggesting the <strong>IV estimator</strong> <span class="math display">\[
+\mathbf{\hat{\beta}_{iv}} = (Z^TX)^{-1}(Z^T\mathbf{y})
+\]</span> that is consistent at a large <span class="math inline">\(n \rightarrow \infty\)</span> limit.</p>
+</div>
 <div id="simple-mr" class="section level2">
-<h2><span class="header-section-number">4.1</span> Simple MR</h2>
+<h2><span class="header-section-number">4.2</span> Simple MR</h2>
 </div>
 <div id="two-sample-mr" class="section level2">
-<h2><span class="header-section-number">4.2</span> Two-sample MR</h2>
+<h2><span class="header-section-number">4.3</span> Two-sample MR</h2>
 </div>
 <div id="mr-egger" class="section level2">
-<h2><span class="header-section-number">4.3</span> MR-Egger</h2>
+<h2><span class="header-section-number">4.4</span> MR-Egger</h2>
 </div>
 <div id="weighted-median-mr" class="section level2">
-<h2><span class="header-section-number">4.4</span> Weighted Median MR</h2>
+<h2><span class="header-section-number">4.5</span> Weighted Median MR</h2>
 </div>
 <div id="modal-based-mr" class="section level2">
-<h2><span class="header-section-number">4.5</span> Modal Based MR</h2>
+<h2><span class="header-section-number">4.6</span> Modal Based MR</h2>
 
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-brucehansen">
+<p>Hansen, Bruce E. 2000. <em>Econometrics</em>. <a href="https://www.ssc.wisc.edu/~bhansen/econometrics/" class="uri">https://www.ssc.wisc.edu/~bhansen/econometrics/</a>.</p>
 </div>
 </div>
             </section>
