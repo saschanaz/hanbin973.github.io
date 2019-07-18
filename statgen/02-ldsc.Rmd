@@ -1,0 +1,59 @@
+# Linkage Disequilibrium Score Regression (LDSC)
+
+Linkage Disequilibrium Score Regression (LDSC) is a popular method in statistical genetics with a wide range of application.
+It is used to measure confounding due to population structure, computing genetic correlation and heritability.
+Most of all, the method can be performed soley on summary statistics rather than the full data which reduces memeory and computation requirements tremendously. 
+
+## Univariate LDSC
+
+The original from of LDSC (here we call it Univariate LDSC) can be used to estimate SNP heritability and confounding effects of population structure [@BulikSullivan2015].
+I refer the supplementary notes of @BulikSullivan2015 for the notations.
+
+```{definition, name="LD score"}
+Define the __LD Score__ of variant $j$ as
+$$
+  l_j = \sum_{k=1}^{M} r_{jk}^2
+$$
+```
+
+Then for a homogenous sample without population structure, the following holds.
+
+```{theorem, name="LDSC without structure", label="ldsc1"}
+In a sample without population structure
+$$
+  \E[\chi_j^2] = \frac{Nh_g^2}{M} l_j +1 
+$$
+holds.
+```
+
+If a population structure (measured by the fixation index $F_{ST}$) exists, a non-zero constant is added to (\#thm:ldsc1).
+
+```{theorem, name="General LDSC", label="ldsc2"}
+In a sample with population structure
+$$
+  \E[\chi_j^2] = \frac{Nh_g^2}{M} l_j + 1 + aNF_{ST}
+$$
+holds.
+```
+
+
+```{proof}
+
+$$\begin{aligned}
+  \V[\hat{\beta_j}] &= \E[\V[\hat{\beta_j}|X]]+\V[\E[\hat{\beta_j}|X]]  \\
+  &= \E[\V[\hat{\beta_j}|X]] + 0 \\
+\end{aligned}$$
+  
+The second term vanishes since $\E[\hat{\beta_j}|X]= 0$.
+
+Inspecting the first term,
+$$\begin{aligned}
+  \V[\hat{\beta_j}|X] &= \frac{1}{N^2} \V[X_j^T \phi|X] \\
+  &= \frac{1}{N^2} X_j^T \V[\phi|X] X_j \\
+  &= \frac{1}{N^2} \left( \frac{h_g^2}{M}X_j^T XX^T X_j + N(1-h_g^2) \right)
+\end{aligned}$$
+
+
+  
+```
+

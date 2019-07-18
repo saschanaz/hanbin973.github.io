@@ -1,0 +1,25 @@
+--- 
+title: "Statistical Genetics"
+author: "Hanbin Lee"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+documentclass: book
+bibliography: [book.bib, packages.bib]
+biblio-style: apalike
+link-citations: yes
+description: "This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook."
+header_includes:
+  - \usepackage{amsmath}
+  - \usepackage{amssymb}
+  - \usepackage{amsthm}
+---
+
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\V}{\mathrm{Var}}
+
+# Prerequisites
+
+Elementary probability theory and linear algebra will be sufficient.
+However, topics regarding theoretical genetics requires knowledge about stochastic processes and measure theory.
+
+Reference on advanced mathematics can be found in @walterrudin1986, @rickdurrett2019 and @rickdurrett2008.

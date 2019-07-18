@@ -1,0 +1,17 @@
+# Mendelian Randomization
+
+Mendelian Randomization (MR) is a special case of the Instrumental Variable (IV) which is widely used in econometrics.
+MR employs genetic variants (e.g. SNP) as IVs since genotypes are automatically randomized in the gametic phase of cell division.
+
+## Simple MR
+
+## Two-sample MR
+
+## MR-Egger
+
+## Weighted Median MR
+
+## Modal Based MR
+
+ 
+
