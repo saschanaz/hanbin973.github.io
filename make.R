@@ -30,6 +30,10 @@ file <- paste0(rmds, "/", folder.name, "/", filename)
 fig.path <- paste0(figs.path, folder.name, "/")
 print(fig.path)
 
+# move external images
+from <- paste0(rmds, "/", folder.name, "/", "img")
+to <- paste0("~/hanbin973.github.io/assets/img/", folder.name)
+
 # create md
 obj <- rmarkdown::render(file)
 out.file <- basename(obj)
