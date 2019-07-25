@@ -1,15 +1,5 @@
----
-author: Hanbin Lee
-bibliography: 'buss.bib'
-categories: 진화심리학
-comments: True
-date: 2019년 3월 10일
-output: 'md\_document'
-title: 37개 문화권에서 발견되는 짝짓기의 성차
----
-
 이 문서는 *Sex differences in human mate preferences: Evolutionary
-hypotheses tested in 37 cultures*[@Buss1989]을 다룹니다. 제목처럼 37개
+hypotheses tested in 37 cultures*(Buss 1989)을 다룹니다. 제목처럼 37개
 문화권에서 성별 간 Mate preference의 차이를 측정하는 연구입니다. Mate
 preference에 대한 복수의 기준에 대해 여러 문화권에서 동일한 결과를
 관찰했고 이를 바탕으로 Mate preference에 대한 유전적/진화적 근거가
@@ -27,10 +17,11 @@ preference에 대한 복수의 기준에 대해 여러 문화권에서 동일한
 교수님의 글에 충분한 설명이 되어 있지만 이 연구의 결론과 함께 정확한
 귀무가설이 무엇인지 밝히고 가겠습니다. 이 연구는 총 37개의 문화권과
 5개의 종속변수에 대해 남녀 간의 평균 차이를 비교하고 있습니다. 따라서
-$\mu_{i,j,k}$를 $i$-번째 문화권, $j$-번째 종속변수의 $k$-번째 성별의
-평균값이라고 하면 다음의 귀무가설을 채택하고 있음을 알 수 있습니다.
+*μ*<sub>*i*, *j*, *k*</sub>를 *i*-번째 문화권, *j*-번째 종속변수의
+*k*-번째 성별의 평균값이라고 하면 다음의 귀무가설을 채택하고 있음을 알
+수 있습니다.
 
-$$ \mu_{i,j,1} = \mu_{i,j,2} \quad (i=1,\ldots,37 \, and \, j=1,\ldots,5) $$
+*μ*<sub>*i*, *j*, 1</sub> = *μ*<sub>*i*, *j*, 2</sub> (*i* = 1, …, 37 *a**n**d* *j* = 1, …, 5)
 
 그런데 이 연구의 귀무가설은 이걸로 끝이 아닙니다. 논문의 Conclusion은
 다음과 같이 밝히고 있습니다.
@@ -88,12 +79,10 @@ error)을 모두 기재했기 때문에 37개 문화권의 결과들을 독립�
 Descriptive Statistics
 ----------------------
 
-#### 데이터 정보 {#-}
+#### 데이터 정보
 
-``` {.r}
-# 데이터 읽기
-data <- read_csv('data.csv')
-```
+    # 데이터 읽기
+    data <- read_csv('data.csv')
 
     ## Parsed with column specification:
     ## cols(
@@ -107,10 +96,8 @@ data <- read_csv('data.csv')
     ##   w.sd.t3 = col_double()
     ## )
 
-``` {.r}
-# 결과 출력
-print(data)
-```
+    # 결과 출력
+    print(data)
 
     ## # A tibble: 37 x 8
     ##    `Culture#`    N1    N2 Analysis m.mean.t3 m.sd.t3 w.mean.t3 w.sd.t3
@@ -130,22 +117,20 @@ print(data)
 샘플수는 남성 4601명, 여성 5446명으로 이뤄졌으며 총원의 중간값은 172명,
 모든 분석은 t-검정을 적용했습니다.
 
-#### P-hacking의 증거? {#p-hacking-}
+#### P-hacking의 증거?
 
 먼저 Table 3 결과들의 사후 검정력을 계산했습니다.
 
-``` {.r}
-# post-hoc power 계산
-p.power <- function(m1, sd1, n1, m2, sd2, n2, sig.level){
-  sd <- sqrt((sd1*sd1+sd2*sd2)/2)
-  d <- (m1-m2)/sd
-  print(d)
-  power <- pwr.t2n.test(n1=n1,n2=n2,d=d,sig.level=sig.level)$power
-  return(power)
-}
+    # post-hoc power 계산
+    p.power <- function(m1, sd1, n1, m2, sd2, n2, sig.level){
+      sd <- sqrt((sd1*sd1+sd2*sd2)/2)
+      d <- (m1-m2)/sd
+      print(d)
+      power <- pwr.t2n.test(n1=n1,n2=n2,d=d,sig.level=sig.level)$power
+      return(power)
+    }
 
-data <- data %>% mutate(ppwr = p.power(m.mean.t3, m.sd.t3, N1, w.mean.t3, w.sd.t3, N2, 0.05))
-```
+    data <- data %>% mutate(ppwr = p.power(m.mean.t3, m.sd.t3, N1, w.mean.t3, w.sd.t3, N2, 0.05))
 
     ##  [1] -0.58303896 -0.63660056  0.40480531 -0.21208617 -0.67747776
     ##  [6] -0.87230643 -0.44365352 -0.21043148 -0.78564551 -0.45640905
@@ -156,44 +141,40 @@ data <- data %>% mutate(ppwr = p.power(m.mean.t3, m.sd.t3, N1, w.mean.t3, w.sd.t
     ## [31] -0.93668960 -0.41323289 -0.58266647 -0.47137338 -0.64903674
     ## [36]  0.14171197 -0.28971439
 
-``` {.r}
-med.pwr <- median(data %>% pull(ppwr))
-prt <- paste('사후 검정력 중간값:',med.pwr,', ','실제 성공률:',as.character(29/37),sep="")
-print(prt)
-```
+    med.pwr <- median(data %>% pull(ppwr))
+    prt <- paste('사후 검정력 중간값:',med.pwr,', ','실제 성공률:',as.character(29/37),sep="")
+    print(prt)
 
     ## [1] "사후 검정력 중간값:0.749037723778365, 실제 성공률:0.783783783783784"
 
 단일 연구에 대한 사후검정력 평가는 큰 의미를 가지지 않지만 메타 분석에서
 사후 검정력을 평가하는 것은 일련의 편향(Bias)를 평가함에 있어 중요한
-도구가 됩니다[@Schimmack2016]. 검정력보다 실제 검정의 성공률이 더 높다는
+도구가 됩니다(Schimmack 2016). 검정력보다 실제 검정의 성공률이 더 높다는
 것은 연구의 신뢰도가 떨어짐을 의미합니다(75% &lt; 78%).
 
 다음으로 Table 3 결과들의 z-score을 계산했습니다.
 
-``` {.r}
-# z-score 계산 함수
-zscore <- function(m1, sd1, n1, m2, sd2, n2){
-  z <- (m1-m2)/sqrt(sd1*sd1/n1 + sd2*sd2/n2)
-  return(z)
-}
+    # z-score 계산 함수
+    zscore <- function(m1, sd1, n1, m2, sd2, n2){
+      z <- (m1-m2)/sqrt(sd1*sd1/n1 + sd2*sd2/n2)
+      return(z)
+    }
 
-# zscore 계산
-data <- data %>% mutate(z3 = zscore(m.mean.t3, m.sd.t3, N1, w.mean.t3, w.sd.t3, N2))
+    # zscore 계산
+    data <- data %>% mutate(z3 = zscore(m.mean.t3, m.sd.t3, N1, w.mean.t3, w.sd.t3, N2))
 
-# zscore 히스토그램
-plot <- ggplot(data, aes(x=z3)) + geom_histogram(color='black', fill='white', binwidth=0.2) + geom_vline(xintercept=-1.96, linetype='dashed', color='red', size=1) + geom_vline(xintercept=-3.7, linetype='dashed', color='red', size=1) +xlab('z-score of Table 3') + ylab('Frequency')
-plot
-```
+    # zscore 히스토그램
+    plot <- ggplot(data, aes(x=z3)) + geom_histogram(color='black', fill='white', binwidth=0.2) + geom_vline(xintercept=-1.96, linetype='dashed', color='red', size=1) + geom_vline(xintercept=-3.7, linetype='dashed', color='red', size=1) +xlab('z-score of Table 3') + ylab('Frequency')
+    plot
 
-![](/assets/img/buss/unnamed-chunk-4-1.png)
+![](assets/img/buss/unnamed-chunk-4-1.png)
 
-보시다시피 $Z=-1.96$과 $Z=-3.7$ 부근에서 분포의 절벽이 두 개
-발견됩니다(빨간점선). 만약 통상적인 메타 분석이었다면 $Z=-1.96$의 절벽은
-출판편향 (Publication Bias)의 증거로 볼 수 있겠으나 이 연구는 37개
-문화권에 대한 결과를 모두 보고하고 있으므로 출판편향의 가능성은
+보시다시피 *Z* = −1.96과 *Z* = −3.7 부근에서 분포의 절벽이 두 개
+발견됩니다(빨간점선). 만약 통상적인 메타 분석이었다면 *Z* = −1.96의
+절벽은 출판편향 (Publication Bias)의 증거로 볼 수 있겠으나 이 연구는
+37개 문화권에 대한 결과를 모두 보고하고 있으므로 출판편향의 가능성은
 배제됩니다. 그렇다면 이는 P-hacking의 증거로 볼 수 밖에 없는데
-어중간하게 유의성 기준($Z=-1.96$)에 못 미치는 데이터에 뭔가 손을 대서
+어중간하게 유의성 기준(*Z* = −1.96)에 못 미치는 데이터에 뭔가 손을 대서
 기준선을 넘겼다는 것이니까요. 두 번째 절벽은 이 가능성을 추가적으로
 뒷받침합니다. 데이터 마사지를 통해 데이터를 건드리면 유의성 기준 넘어
 일정 구간에 z-score이 많이 분포하게 됩니다. 그 결과 두 번째 절벽이
@@ -201,19 +182,17 @@ plot
 
 마지막으로 등분산성을 확인했습니다.
 
-``` {.r}
-# z-score 계산 함수
-eqvar <- function(sd1, n1, sd2, n2){
-  fstat <- sd1*sd1/(sd2*sd2)
-  f.pvalue <- pf(fstat, n1-1, n2-1, lower.tail=F)
-  return(f.pvalue)
-}
+    # z-score 계산 함수
+    eqvar <- function(sd1, n1, sd2, n2){
+      fstat <- sd1*sd1/(sd2*sd2)
+      f.pvalue <- pf(fstat, n1-1, n2-1, lower.tail=F)
+      return(f.pvalue)
+    }
 
-# zscore 계산
-data <- data %>% mutate(eqvar = eqvar(m.sd.t3, N1, w.sd.t3, N2))
-vec <- data %>% pull('eqvar') < 0.05
-print(sum(as.numeric(vec))/length(vec)*100)
-```
+    # zscore 계산
+    data <- data %>% mutate(eqvar = eqvar(m.sd.t3, N1, w.sd.t3, N2))
+    vec <- data %>% pull('eqvar') < 0.05
+    print(sum(as.numeric(vec))/length(vec)*100)
 
     ## [1] 21.62162
 
@@ -240,7 +219,15 @@ print(sum(as.numeric(vec))/length(vec)*100)
 대학원 실해석학, 수학과 확률과정론 및 확률미분방정식 그리고 통계학과
 수리통계학을 모두 이수했고 대부분 A0나 A+ 받았습니다. 이 정도면 보편적인
 통계학과 대학원에서 1학년이 이수하는 코스웍 수준인데 비-통계학과에서
-이수하는 수준은 아득히 넘어선 것 같네요 \^\^;;
+이수하는 수준은 아득히 넘어선 것 같네요 ^^;;
 
-참고문헌 {.unnumbered}
+참고문헌
 --------
+
+Buss, David M. 1989. “Sex Differences in Human Mate Preferences:
+Evolutionary Hypotheses Tested in 37 Cultures.” *Behavioral and Brain
+Sciences* 12 (01). Cambridge University Press (CUP): 1.
+doi:[10.1017/s0140525x00023992](https://doi.org/10.1017/s0140525x00023992).
+
+Schimmack, Ulrich. 2016. “A Revised Introduction to the R-Index.”
+<https://wordpress.com/post/replication-index.wordpress.com/920>.
