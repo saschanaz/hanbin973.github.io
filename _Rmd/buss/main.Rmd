@@ -7,7 +7,7 @@ bibliography: buss.bib
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(fig.path="assets/img/lippa/")
+knitr::opts_chunk$set(fig.path="assets/img/buss/")
 ```
 
 이 문서는 *Sex differences in human mate preferences: Evolutionary hypotheses tested in 37 cultures*[@Buss1989]을 다룹니다.
