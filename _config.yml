@@ -52,4 +52,5 @@ remote_theme: hanbin973/plainwhite-jekyll
 # base url
 markdown: kramdown
 url: https://hanbin973.github.io/
+baseurl: /
 
