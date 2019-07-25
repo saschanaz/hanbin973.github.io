@@ -22,7 +22,7 @@ file.copy(Rmd.path, Rmd.name)
 file.copy(bib.path, paste0(folder.name, ".bib"))
 
 # compile Rmd
-Rmd.compile <- rmarkdown::render(Rmd.name, md_document(variant="markdown", preserve_yaml=TRUE))
+Rmd.compile <- rmarkdown::render(Rmd.name, md_document(variant="commonmark", preserve_yaml=TRUE))
 out.file <- basename(Rmd.compile)
 
 # save outcome md to specified path
