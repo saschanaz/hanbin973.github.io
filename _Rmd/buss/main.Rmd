@@ -2,7 +2,7 @@
 title: "Buss (1989) 관련 논의"
 author: "Hanbin Lee"
 date: "2019년 3월 10일"
-output: html_document
+output: md_document
 bibliography: buss.bib
 ---
 
