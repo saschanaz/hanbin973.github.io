@@ -1,7 +1,6 @@
 ---
 title: "37개 문화권에서 발견되는 짝짓기의 성차"
 author: "Hanbin Lee"
-date: "2019년 3월 10일"
 output: md_document
 bibliography: buss.bib
 categories: "진화심리학"
