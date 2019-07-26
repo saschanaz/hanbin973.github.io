@@ -28,6 +28,7 @@ $\alpha$의 소수부분을 $\beta$라고 하자.
 즉, $\alpha = f + \beta$ (단, $0 \leq \beta < 1$).
 
 그러면
+
 $$\begin{aligned}
     n\alpha &= n(f+\beta) \\
                 &= nf + n\beta \\
@@ -53,8 +54,6 @@ $$\begin{aligned}
 를 얻는다.
 
 그런데 $\beta$의 정의상 $0 \leq \beta <1$이기 때문에 $\left(n - \left[n\beta + \frac{1}{2} \right] \right)$은 항상 0보다 크거나 같다.
-
-물론, $\left(n - \left[n\beta + \frac{1}{2} \right] \right)=0$인 경우가 발생할 수도 있지만 $n$이 조금만 커도 일어나지 않고 그런 경우라도 $(f+1)-f$를 이용해 계수를 조금만 조정해주면 해결된다.
 
 이렇게 쓰니까 길어보이지만 사실 별 거 아니더라..
 
