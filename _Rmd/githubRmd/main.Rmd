@@ -47,5 +47,8 @@ Jekyll에 업로드될 문서는 적절한 YAML 정보를 요구합니다.
 
 <script src="http://gist-it.appspot.com/http://github.com/hanbin973/githubRmd/blob/master/skeleton.Rmd"></script>
 
+<script src="https://gist-it.appspot.com/github/robertkrimen/gist-it-example/blob/master/example.js"></script>
+
+
 
 ## 참고문헌
