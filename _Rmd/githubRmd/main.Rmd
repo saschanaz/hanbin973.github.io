@@ -45,7 +45,7 @@ Jekyll에 업로드될 문서는 적절한 YAML 정보를 요구합니다.
 이 [링크](http://ismayc.github.io/ecots2k16/template_pkg/)에는 R Studio에서 사용가능한 Rmd template을 만드는 법을 다루고 있습니다.
 링크에 있는 `skeleton.Rmd`를 저는 다음과 같이 작성했습니다.
 
-<script src="http://gist-it.appspot.com/http://github.com/hanbin973/githubRmd/blob/master/skeleton.Rmd"></script>
+<script src="https://gist-it.appspot.com/github/hanbin973/githubRmd/blob/master/skeleton.Rmd"></script>
 
 <script src="https://gist-it.appspot.com/github/robertkrimen/gist-it-example/blob/master/example.js"></script>
 
