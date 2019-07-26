@@ -8,10 +8,11 @@ comments: true
 ---
 
 ```{r setup, include=FALSE}
+knitr::opts_knit$set(base.url = "/")
 knitr::opts_chunk$set(fig.path="assets/img/buss/")
 ```
 
-이 문서는 *Sex differences in human mate preferences: Evolutionary hypotheses tested in 37 cultures*[@Buss1989]을 다룹니다.
+이 문서는 *Sex differences in human mate preferences: Evolutionary hypotheses tested in 37 cultures* [@Buss1989]을 다룹니다.
 제목처럼 37개 문화권에서 성별 간 Mate preference의 차이를 측정하는 연구입니다.
 Mate preference에 대한 복수의 기준에 대해 여러 문화권에서 동일한 결과를 관찰했고 이를 바탕으로 Mate preference에 대한 유전적/진화적 근거가 있다는 것이 논문의 결론입니다.
 

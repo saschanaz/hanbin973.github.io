@@ -22,7 +22,8 @@ file.copy(Rmd.path, Rmd.name)
 file.copy(bib.path, paste0(folder.name, ".bib"))
 
 # compile Rmd
-Rmd.compile <- rmarkdown::render(Rmd.name, md_document(variant="markdown_strict+tex_math_dollars", preserve_yaml=TRUE))
+Rmd.compile <- rmarkdown::render(Rmd.name, 
+                                 md_document(variant="markdown_strict+tex_math_dollars", preserve_yaml=TRUE))
 out.file <- basename(Rmd.compile)
 
 # save outcome md to specified path
@@ -30,8 +31,6 @@ date <- toString(Sys.Date())
 out.name <- paste0(date, "-", folder.name, ".md")
 md.path <- paste0("_posts/", out.name)
 file.rename(out.file, md.path)
-
-# TODO: add meta data to outcome
 
 # remove copied files
 file.remove(Rmd.name)
