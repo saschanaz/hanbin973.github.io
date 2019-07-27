@@ -207,11 +207,11 @@ trait)이라고 부릅니다. 중요한 것은 인간 뿐만 아니라 모든 �
 
 2018년, 미국인간유전학회(American Society of Human Genetics, ASHG)
 미팅에서는 300,000여명을 대상으로 역사상 가장 거대한 동성애 유전학
-연구의 결과가 발표됐습니다(al. 2018). 모두가 예상했던 것처럼 동성애 역시
-잘 연구된 다른 정신적 형질과 마찬가지로 복합형질이며 동성애 측정 기준을
-무엇으로 삼느냐에 따라 상이한 변이들이 관여한다는 것을 알아냈습니다.
-동성애라는 넓은 범주가 유전적으로도 이질적인 집단들의 모임이라는 것을
-밝혀낸 것입니다.
+연구의 결과가 발표됐습니다(Wedow and others 2018). 모두가 예상했던
+것처럼 동성애 역시 잘 연구된 다른 정신적 형질과 마찬가지로 복합형질이며
+동성애 측정 기준을 무엇으로 삼느냐에 따라 상이한 변이들이 관여한다는
+것을 알아냈습니다. 동성애라는 넓은 범주가 유전적으로도 이질적인 집단들의
+모임이라는 것을 밝혀낸 것입니다.
 
 이제 동성애의 미스터리는 크게 놀라울 것이 없습니다. 동성애가 자손을
 남기지 못하더라도 복합형질이기 때문에 자연선택에 의해 잘 제거되지 않았던
@@ -284,10 +284,6 @@ et al. 2018).
 참고문헌
 --------
 
-al., R. Wedow et. 2018. “Results from the Largest Genetic Study of
-Sexual Orientation.”
-<http://programme.exordo.com/bga18/delegates/presentation/16/?fbclid=IwAR3U00Lxu_qBcoufDoFRr8SRv2jhOnJQWRdHIBwWRUEnAwPIEGG_LJ8W5N4>.
-
 Bae, Ji Cheol. 2018. “Trends of Diabetes Epidemic in Korea.” *Diabetes &
 Metabolism Journal* 42 (5). Korean Diabetes Association (KAMJE): 377.
 doi:[10.4093/dmj.2018.0194](https://doi.org/10.4093/dmj.2018.0194).
@@ -337,6 +333,10 @@ Visscher, Peter M., and Naomi R. Wray. 2015. “Concepts and
 Misconceptions About the Polygenic Additive Model Applied to Disease.”
 *Human Heredity* 80 (4). S. Karger AG: 165–70.
 doi:[10.1159/000446931](https://doi.org/10.1159/000446931).
+
+Wedow, R., and others. 2018. “Results from the Largest Genetic Study of
+Sexual Orientation.”
+<http://programme.exordo.com/bga18/delegates/presentation/16/?fbclid=IwAR3U00Lxu_qBcoufDoFRr8SRv2jhOnJQWRdHIBwWRUEnAwPIEGG_LJ8W5N4>.
 
 Xue, Angli, and Yang Wu, Zhihong Zhu, Futao Zhang, Kathryn E. Kemper,
 Zhili Zheng, Loic Yengo, et al. 2018. “Genome-Wide Association Analyses
