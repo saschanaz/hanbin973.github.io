@@ -100,6 +100,7 @@ comments: true
     ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 
 <img src="/assets/img/complexhomo/unnamed-chunk-3-1.png" style="display: block; margin: auto;" />
+
 형질에 관여하는 대립유전자의 쌍이 증가함에 따라 형질의 분포가 점점
 연속적인 정규분포에 가까워지는 것을 관찰할 수 있습니다.
 
@@ -127,8 +128,6 @@ trait)이라고 부릅니다. 중요한 것은 인간 뿐만 아니라 모든 �
 가축이나 작물의 품종을 개량하는 과정에서 너무나도 빠른 변화를 관찰했던
 것입니다. 아래 그림은 20세기를 거치면서 가축 닭이 얼마나 빠르게
 변화했는지 보여줍니다. 닭의 체중은 반세기 동안 4배 이상 증가했습니다.
-
-    knitr::include_graphics('assets/img/complexhomo/chicken.png')
 
 <img src="/assets/img/complexhomo/chicken.png" alt="반 세기 동안 급격하게 증가한 가축 닭의 체중" width="600" />
 <p class="caption">
@@ -175,11 +174,14 @@ trait)이라고 부릅니다. 중요한 것은 인간 뿐만 아니라 모든 �
 
 복합형질은 질병부담임계모델(Disease liability threahold model)을
 따릅니다(Visscher and Wray 2015). 그림으로 보면 단순합니다.
-![](/assets/img/complexhomo/unnamed-chunk-5-1.png) 질병에 기여하는
-변이의 갯수가 특정 임계치(그림에서 붉은색 선)을 초과하는 사람들이 질병에
-걸립니다. 예를 들어 100개의 대립유전자 쌍(=200개의 대립유전자)이 있고
-임계치가 160개인 질병이 있다면 200개 중에 질병을 유발하는 변이를 150개
-가진 사람은 질병이 없고 170개인 사람은 질병이 있습니다.
+
+![](/assets/img/complexhomo/unnamed-chunk-5-1.png)
+
+질병에 기여하는 변이의 갯수가 특정 임계치(그림에서 붉은색 선)을 초과하는
+사람들이 질병에 걸립니다. 예를 들어 100개의 대립유전자 쌍(=200개의
+대립유전자)이 있고 임계치가 160개인 질병이 있다면 200개 중에 질병을
+유발하는 변이를 150개 가진 사람은 질병이 없고 170개인 사람은 질병이
+있습니다.
 
 이 모델은 질병이 아닌 경우에도 있거나 없음 혹은 범주1/범주2으로 구분되는
 모든 형질에 적용됩니다. 결과물은 이분법적이지만 그 배경에는 수없이 많은
