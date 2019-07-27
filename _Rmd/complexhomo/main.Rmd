@@ -77,7 +77,7 @@ library(tidyverse)
 library(gridExtra)
 ```
 
-```{r, echo=FALSE, fig.align='center', warning=FALSE}
+```{r, echo=FALSE, fig.align='center', warning=FALSE, message=FALSE}
 n <- 1000
 p <- 1/2
 x1 <- rbinom(n, 2, p)

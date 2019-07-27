@@ -95,10 +95,6 @@ comments: true
 유전법칙으로도 형질의 연속적인 변화를 설명할 수 있다는 것입니다. 아래
 그림은 이 상황을 잘 보여주고 있습니다.
 
-    ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
-    ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
-    ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
-
 <img src="/assets/img/complexhomo/unnamed-chunk-3-1.png" style="display: block; margin: auto;" />
 
 형질에 관여하는 대립유전자의 쌍이 증가함에 따라 형질의 분포가 점점
