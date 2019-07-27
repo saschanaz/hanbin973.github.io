@@ -6,11 +6,11 @@
 생물학에서 '왜?(Why?)'라는 질문은 대체로 진화생물학의 몫입니다.
 진화생물학은 생물의 어떠한 특성이나 형질이 긴 시간 속에서 어떻게
 발생했는지 묻습니다. 자연선택(Natural selection)은 진화를 추동하는 여러
-힘들 중 가장 잘 알려진 개념일 것입니다. 1859년 다윈이 '종의 기원'에서
-제안한 이 아이디어는 여러 변이 중 가장 환경에 적합한 개체가 자손을
-남기면서 집단의 평균적인 특성이 변해간다고 주장합니다. 예를 들어, 기린의
-긴 목은 목이 긴 기린들이 목이 짧은 기린들보다 자손을 더 많이 남기면서
-빚어진 결과라는 것입니다.
+힘들 중 가장 잘 알려진 개념일 것입니다. 1859년 다윈이 &lt;종의
+기원&gt;에서 제안한 이 아이디어는 여러 변이 중 가장 환경에 적합한 개체가
+자손을 남기면서 집단의 평균적인 특성이 변해간다고 주장합니다. 예를 들어,
+기린의 긴 목은 목이 긴 기린들이 목이 짧은 기린들보다 자손을 더 많이
+남기면서 빚어진 결과라는 것입니다.
 
 <p align="center">
 <img src="/assets/img/complexhomo/girin.png" alt="자연선택과 기린의 목길이"  />
@@ -66,9 +66,9 @@
 수도승이던 그레고리 멘델의 강낭콩 실험에 의해 밝혀집니다. 형질을
 결정하는 한쌍의 대립유전자가 존재한다는 것입니다.
 
-그러나 두 이론은 초창기에 잘 어울리지 못했습니다. <종의 기원>이 출판된
-것이 1859년이고 멘델의 연구가 발표된 것이 동시대였음에도 두 이론이
-동시에 수용되지 않았던 것입니다. 오히려 두 주장이 모순된다는 것이
+그러나 두 이론은 초창기에 잘 어울리지 못했습니다. &lt;종의 기원&gt;이
+출판된 것이 1859년이고 멘델의 연구가 발표된 것이 동시대였음에도 두
+이론이 동시에 수용되지 않았던 것입니다. 오히려 두 주장이 모순된다는 것이
 과학계의 생각이었습니다. 다윈의 자연선택설이 옳다면 세대를 거듭하며
 유리한 형질을 가진 개체가 자손을 조금씩 더 많이 남기면서 집단 전체의
 평균값이 서서히 변해야하지만 멘델의 실험에 따르면 강낭콩의 색깔은 초록과
@@ -198,11 +198,11 @@ trait)이라고 부릅니다. 중요한 것은 인간 뿐만 아니라 모든 �
 
 2018년, 미국인간유전학회(American Society of Human Genetics, ASHG)
 미팅에서는 300,000여명을 대상으로 역사상 가장 거대한 동성애 유전학
-연구의 결과가 발표됐습니다(al. 2018). 모두가 예상했던 것처럼 동성애 역시
-잘 연구된 다른 정신적 형질과 마찬가지로 복합형질이며 동성애 측정 기준을
-무엇으로 삼느냐에 따라 상이한 변이들이 관여한다는 것을 알아냈습니다.
-동성애라는 넓은 범주가 유전적으로도 이질적인 집단들의 모임이라는 것을
-밝혀낸 것입니다.
+연구의 결과가 발표됐습니다(Wedow and others 2018). 모두가 예상했던
+것처럼 동성애 역시 잘 연구된 다른 정신적 형질과 마찬가지로 복합형질이며
+동성애 측정 기준을 무엇으로 삼느냐에 따라 상이한 변이들이 관여한다는
+것을 알아냈습니다. 동성애라는 넓은 범주가 유전적으로도 이질적인 집단들의
+모임이라는 것을 밝혀낸 것입니다.
 
 이제 동성애의 미스터리는 크게 놀라울 것이 없습니다. 동성애가 자손을
 남기지 못하더라도 복합형질이기 때문에 자연선택에 의해 잘 제거되지 않았던
@@ -275,10 +275,6 @@ et al. 2018).
 참고문헌
 --------
 
-al., R. Wedow et. 2018. “Results from the Largest Genetic Study of
-Sexual Orientation.”
-<http://programme.exordo.com/bga18/delegates/presentation/16/?fbclid=IwAR3U00Lxu_qBcoufDoFRr8SRv2jhOnJQWRdHIBwWRUEnAwPIEGG_LJ8W5N4>.
-
 Bae, Ji Cheol. 2018. “Trends of Diabetes Epidemic in Korea.” *Diabetes &
 Metabolism Journal* 42 (5). Korean Diabetes Association (KAMJE): 377.
 doi:[10.4093/dmj.2018.0194](https://doi.org/10.4093/dmj.2018.0194).
@@ -328,6 +324,10 @@ Visscher, Peter M., and Naomi R. Wray. 2015. “Concepts and
 Misconceptions About the Polygenic Additive Model Applied to Disease.”
 *Human Heredity* 80 (4). S. Karger AG: 165–70.
 doi:[10.1159/000446931](https://doi.org/10.1159/000446931).
+
+Wedow, R., and others. 2018. “Results from the Largest Genetic Study of
+Sexual Orientation.”
+<http://programme.exordo.com/bga18/delegates/presentation/16/?fbclid=IwAR3U00Lxu_qBcoufDoFRr8SRv2jhOnJQWRdHIBwWRUEnAwPIEGG_LJ8W5N4>.
 
 Xue, Angli, and Yang Wu, Zhihong Zhu, Futao Zhang, Kathryn E. Kemper,
 Zhili Zheng, Loic Yengo, et al. 2018. “Genome-Wide Association Analyses
