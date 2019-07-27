@@ -6,11 +6,11 @@
 생물학에서 '왜?(Why?)'라는 질문은 대체로 진화생물학의 몫입니다.
 진화생물학은 생물의 어떠한 특성이나 형질이 긴 시간 속에서 어떻게
 발생했는지 묻습니다. 자연선택(Natural selection)은 진화를 추동하는 여러
-힘들 중 가장 잘 알려진 개념일 것입니다. 1859년 다윈이 <종의 기원>에서
-제안한 이 아이디어는 여러 변이 중 가장 환경에 적합한 개체가 자손을
-남기면서 집단의 평균적인 특성이 변해간다고 주장합니다. 예를 들어, 기린의
-긴 목은 목이 긴 기린들이 목이 짧은 기린들보다 자손을 더 많이 남기면서
-빚어진 결과라는 것입니다.
+힘들 중 가장 잘 알려진 개념일 것입니다. 1859년 다윈이 &lt;종의
+기원&gt;에서 제안한 이 아이디어는 여러 변이 중 가장 환경에 적합한 개체가
+자손을 남기면서 집단의 평균적인 특성이 변해간다고 주장합니다. 예를 들어,
+기린의 긴 목은 목이 긴 기린들이 목이 짧은 기린들보다 자손을 더 많이
+남기면서 빚어진 결과라는 것입니다.
 
 <img src="/assets/img/complexhomo/girin.png" alt="자연선택과 기린의 목길이"  />
 <p class="caption">
@@ -86,23 +86,7 @@
 유전법칙으로도 형질의 연속적인 변화를 설명할 수 있다는 것입니다. 아래
 그림은 이 상황을 잘 보여주고 있습니다.
 
-    ## ─ Attaching packages ─────────────────────────────────────────────────────────────────────── tidyverse 1.2.1 ─
-
-    ## ✔ ggplot2 3.0.0     ✔ purrr   0.2.5
-    ## ✔ tibble  1.4.2     ✔ dplyr   0.7.6
-    ## ✔ tidyr   0.8.1     ✔ stringr 1.3.1
-    ## ✔ readr   1.1.1     ✔ forcats 0.3.0
-
-    ## ─ Conflicts ──────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ─
-    ## ✖ dplyr::filter() masks stats::filter()
-    ## ✖ dplyr::lag()    masks stats::lag()
-
-    ## 
-    ## Attaching package: 'gridExtra'
-
-    ## The following object is masked from 'package:dplyr':
-    ## 
-    ##     combine
+<img src="/assets/img/complexhomo/unnamed-chunk-3-1.png" style="display: block; margin: auto;" />
 
 형질에 관여하는 대립유전자의 쌍이 증가함에 따라 형질의 분포가 점점
 연속적인 정규분포에 가까워지는 것을 관찰할 수 있습니다.
@@ -113,15 +97,16 @@
 trait)이라고 부릅니다. 중요한 것은 인간 뿐만 아니라 모든 생물의 거의
 모든 형질이 복합형질이라는 것입니다. 당뇨병, 자폐스팩트럼, 조현병 같은
 질병 뿐만 아니라 키, BMI 같은 일반적인 특성까지 거의 모든 형질은
-복합형질입니다. 이 굴의 주제인 동성애도 복합형질이라는 것이 알려져
+복합형질입니다. 이 글의 주제인 동성애도 복합형질이라는 것이 알려져
 있습니다. 2012년의 연구에 따르면 류마티스 관절염의 경우 약 3000개 가량의
-대립유전자 쌍이 관여하고 있다고 합니다. 2017년에 제기된 한 가설에 따르면
-모든 형질이 유전체 상의 모든 대립유전자에 의해 조절받는다고 합니다.
-그리고 동성애를 포함한 성적지향도 복합형질 중 하나입니다. 그렇다면 이제
-복합형질이라는 사실이 진화에 어떤 영향을 가져오는지 알아볼 차례입니다.
-대체 복합형질은 멘델형질과 어떻게 다른 것일까요? 인간과 동물에서
-발견되는 다양한 형질을 관찰함으로써 이 차이에 대한 힌트를 얻을 수
-있습니다.
+대립유전자 쌍이 관여하고 있다고 합니다(E. A. Stahl et al. 2012).
+2017년에 제기된 한 가설에 따르면 모든 형질이 유전체 상의 모든
+대립유전자에 의해 조절받는다고 합니다(Boyle, Li, and Pritchard 2017).
+그리고 동성애를 포함한 성적지향도 복합형질 중 하나입니다(Sanders et al.
+2017). 그렇다면 이제 복합형질이라는 사실이 진화에 어떤 영향을 가져오는지
+알아볼 차례입니다. 대체 복합형질은 멘델형질과 어떻게 다른 것일까요?
+인간과 동물에서 발견되는 다양한 형질을 관찰함으로써 이 차이에 관한
+힌트를 얻을 수 있습니다.
 
 복합형질의 진화: 가축의 경우
 ============================
@@ -130,6 +115,11 @@ trait)이라고 부릅니다. 중요한 것은 인간 뿐만 아니라 모든 �
 가축이나 작물의 품종을 개량하는 과정에서 너무나도 빠른 변화를 관찰했던
 것입니다. 아래 그림은 20세기를 거치면서 가축 닭이 얼마나 빠르게
 변화했는지 보여줍니다. 닭의 체중은 반세기 동안 4배 이상 증가했습니다.
+
+<img src="/assets/img/complexhomo/chicken.png" alt="반 세기 동안 급격하게 증가한 가축 닭의 체중"  />
+<p class="caption">
+반 세기 동안 급격하게 증가한 가축 닭의 체중
+</p>
 
 멘델 형질에서는 이러한 변화가 불가능합니다. A라는 대립유전자가 a라는
 대립유전자에 비해 체중을 2kg 증가시키는 경우를 생각하면 대립유전자
@@ -142,13 +132,13 @@ trait)이라고 부릅니다. 중요한 것은 인간 뿐만 아니라 모든 �
 =======================
 
 당뇨는 현대인들에게서 굉장히 높은 빈도로 발견됩니다. 한국의 당뇨병
-유병률(병을 가진 사람들의 비율)은 16년을 기준으로 거의 20%에 달합니다.
-당뇨는 다양한 합병증의 원인이 되며 심한 경우 말단이 괴사해서 팔다리를
-절단하기도 합니다. 그런데 당뇨를 유발하는 대립유전자(혹은 변이, 같은
-뜻으로 쓰겠습니다)는 지금까지 사라지지 않고 잘 남아왔습니다. 더군더나
-유병률이 이토록 크다는 것은 그 변이들이 집단에 굉장히 높은 빈도로
-존재한다는 뜻입니다. 당뇨병 유발 임계치를 넘어서는 수준의 변이를 갖는
-사람이 그만큼 많다는 것이기 때문입니다.
+유병률(병을 가진 사람들의 비율)은 16년을 기준으로 거의 20%에
+달합니다(Bae 2018). 당뇨는 다양한 합병증의 원인이 되며 심한 경우 말단이
+괴사해서 팔다리를 절단하기도 합니다. 그런데 당뇨를 유발하는
+대립유전자(혹은 변이, 같은 뜻으로 쓰겠습니다)는 지금까지 사라지지 않고
+잘 남아왔습니다. 더군더나 유병률이 이토록 크다는 것은 그 변이들이 집단에
+굉장히 높은 빈도로 존재한다는 뜻입니다. 당뇨병 유발 임계치를 넘어서는
+수준의 변이를 갖는 사람이 그만큼 많다는 것이기 때문입니다.
 
 이를 설명하기 위해 등장한 가설이 '배고픈 유전자 가설' 입니다.
 원시시대에는 음식이 부족해서 고지방 고탐수화물 식단을 선호하는
@@ -160,20 +150,25 @@ trait)이라고 부릅니다. 중요한 것은 인간 뿐만 아니라 모든 �
 위해 DNA 정보를 이용해보니 오히려 당뇨병을 유발하는 변이들은 이미
 원시시대부터 제거되고 있었고 당뇨를 방지하는 변이들이 선택되고
 있었습니다. 배고픈 유전자 가설은 틀렸다는 것이고 원래의 예상대로
-당뇨병을 유발하는 변이들은 제거되고 있었습니다. 그러면 자연스럽게 수만년
-동안 제거되던 변이가 어떻게 지금까지 잔뜩 살아남았는지 궁금해집니다.
-결론부터 말하면 복합형질은 자연선택에 의해 제거되지 '못'합니다. 이는
-복합형질이 멘델형질로부터 구분되는 아주 중요한 특징입니다.
+당뇨병을 유발하는 변이들은 제거되고 있었습니다(Xue et al. 2018). 그러면
+자연스럽게 수만년 동안 제거되던 변이가 어떻게 지금까지 잔뜩 살아남았는지
+궁금해집니다. 결론부터 말하면 복합형질은 자연선택에 의해 제거되지
+'못'합니다. 이는 복합형질이 멘델형질로부터 구분되는 아주 중요한
+특징입니다.
 
 복합형질모델
 ============
 
 복합형질은 질병부담임계모델(Disease liability threahold model)을
-따릅니다. 그림으로 보면 단순합니다. 질병에 기여하는 변이의 갯수가 특정
-임계치(그림에서 붉은색 선)을 초과하는 사람들이 질병에 걸립니다. 예를
-들어 100개의 대립유전자 쌍(=200개의 대립유전자)이 있고 임계치가 160개인
-질병이 있다면 200개 중에 질병을 유발하는 변이를 150개 가진 사람은 질병이
-없고 170개인 사람은 질병이 있습니다.
+따릅니다(Visscher and Wray 2015). 그림으로 보면 단순합니다.
+
+![](/assets/img/complexhomo/unnamed-chunk-5-1.png)
+
+질병에 기여하는 변이의 갯수가 특정 임계치(그림에서 붉은색 선)을 초과하는
+사람들이 질병에 걸립니다. 예를 들어 100개의 대립유전자 쌍(=200개의
+대립유전자)이 있고 임계치가 160개인 질병이 있다면 200개 중에 질병을
+유발하는 변이를 150개 가진 사람은 질병이 없고 170개인 사람은 질병이
+있습니다.
 
 이 모델은 질병이 아닌 경우에도 있거나 없음 혹은 범주1/범주2으로 구분되는
 모든 형질에 적용됩니다. 결과물은 이분법적이지만 그 배경에는 수없이 많은
@@ -199,11 +194,11 @@ trait)이라고 부릅니다. 중요한 것은 인간 뿐만 아니라 모든 �
 
 2018년, 미국인간유전학회(American Society of Human Genetics, ASHG)
 미팅에서는 300,000여명을 대상으로 역사상 가장 거대한 동성애 유전학
-연구의 결과가 발표됐습니다. 모두가 예상했던 것처럼 동성애 역시 잘 연구된
-다른 정신적 형질과 마찬가지로 복합형질이며 동성애 측정 기준을 무엇으로
-삼느냐에 따라 상이한 변이들이 관여한다는 것을 알아냈습니다. 동성애라는
-넓은 범주가 유전적으로도 이질적인 집단들의 모임이라는 것을 밝혀낸
-것입니다.
+연구의 결과가 발표됐습니다(al. 2018). 모두가 예상했던 것처럼 동성애 역시
+잘 연구된 다른 정신적 형질과 마찬가지로 복합형질이며 동성애 측정 기준을
+무엇으로 삼느냐에 따라 상이한 변이들이 관여한다는 것을 알아냈습니다.
+동성애라는 넓은 범주가 유전적으로도 이질적인 집단들의 모임이라는 것을
+밝혀낸 것입니다.
 
 이제 동성애의 미스터리는 크게 놀라울 것이 없습니다. 동성애가 자손을
 남기지 못하더라도 복합형질이기 때문에 자연선택에 의해 잘 제거되지 않았던
@@ -220,7 +215,8 @@ trait)이라고 부릅니다. 중요한 것은 인간 뿐만 아니라 모든 �
 연구자들이 모인 정신질환유전체컨소시엄(Psychiatric Genomics Consortium,
 PGC)은 2018년에 조현병의 진화를 잘 예측하는 이론 모델을 제안했습니다.
 앞서 살펴보았듯이 조현병 역시 복합형질로 자연선택에 의해 잘 제거되지
-않는데 조현병의 경우에 적용되는 구체적인 모델을 찾은 것입니다.
+않는데 조현병의 경우에 적용되는 구체적인 모델을 찾은 것입니다(Pardiñas
+et al. 2018).
 
 현대 진화생물학에는 다윈이 최초에 제시했던 이론에서 살이 더 붙어서
 자연선택에 두 가지 요인을 더해 세 가지 요인이 진화를 추동한다고 봅니다.
@@ -275,6 +271,19 @@ PGC)은 2018년에 조현병의 진화를 잘 예측하는 이론 모델을 제�
 참고문헌
 --------
 
+al., R. Wedow et. 2018. “Results from the Largest Genetic Study of
+Sexual Orientation.”
+<http://programme.exordo.com/bga18/delegates/presentation/16/?fbclid=IwAR3U00Lxu_qBcoufDoFRr8SRv2jhOnJQWRdHIBwWRUEnAwPIEGG_LJ8W5N4>.
+
+Bae, Ji Cheol. 2018. “Trends of Diabetes Epidemic in Korea.” *Diabetes &
+Metabolism Journal* 42 (5). Korean Diabetes Association (KAMJE): 377.
+doi:[10.4093/dmj.2018.0194](https://doi.org/10.4093/dmj.2018.0194).
+
+Boyle, Evan A., Yang I. Li, and Jonathan K. Pritchard. 2017. “An
+Expanded View of Complex Traits: From Polygenic to Omnigenic.” *Cell*
+169 (7). Elsevier BV: 1177–86.
+doi:[10.1016/j.cell.2017.05.038](https://doi.org/10.1016/j.cell.2017.05.038).
+
 FALCONER, D. S. 1965. “The Inheritance of Liability to Certain Diseases,
 Estimated from the Incidence Among Relatives.” *Annals of Human
 Genetics* 29 (1). Wiley: 51–76.
@@ -284,6 +293,14 @@ Fisher, R.A. 1918. “The Correlation Between Relatives on the Supposition
 of Mendelian Inheritance.” *Trans. R. Soc. Edinb.*
 
 Hull, David L. 2010. *Science as a Process*.
+
+Pardiñas, Antonio F., and Peter Holmans, Andrew J. Pocklington,
+Valentina Escott-Price, Stephan Ripke, Noa Carrera, Sophie E. Legge, et
+al. 2018. “Common Schizophrenia Alleles Are Enriched in
+Mutation-Intolerant Genes and in Regions Under Strong Background
+Selection.” *Nature Genetics* 50 (3). Springer Science; Business Media
+LLC: 381–89.
+doi:[10.1038/s41588-018-0059-2](https://doi.org/10.1038/s41588-018-0059-2).
 
 Sanders, Alan R., and Gary W. Beecham, Shengru Guo, Khytam Dawood,
 Gerulf Rieger, Judith A. Badner, Elliot S. Gershon, et al. 2017.
@@ -296,3 +313,21 @@ Henrik Larsson, and Abraham Reichenberg. 2017. “The Heritability of
 Autism Spectrum Disorder.” *JAMA* 318 (12). American Medical Association
 (AMA): 1182.
 doi:[10.1001/jama.2017.12141](https://doi.org/10.1001/jama.2017.12141).
+
+Stahl, Eli A, and Daniel Wegmann, Gosia Trynka, Javier Gutierrez-Achury,
+Ron Do, Benjamin F Voight, Peter Kraft, et al. 2012. “Bayesian Inference
+Analyses of the Polygenic Architecture of Rheumatoid Arthritis.” *Nature
+Genetics* 44 (5). Springer Science; Business Media LLC: 483–89.
+doi:[10.1038/ng.2232](https://doi.org/10.1038/ng.2232).
+
+Visscher, Peter M., and Naomi R. Wray. 2015. “Concepts and
+Misconceptions About the Polygenic Additive Model Applied to Disease.”
+*Human Heredity* 80 (4). S. Karger AG: 165–70.
+doi:[10.1159/000446931](https://doi.org/10.1159/000446931).
+
+Xue, Angli, and Yang Wu, Zhihong Zhu, Futao Zhang, Kathryn E. Kemper,
+Zhili Zheng, Loic Yengo, et al. 2018. “Genome-Wide Association Analyses
+Identify 143 Risk Variants and Putative Regulatory Mechanisms for Type 2
+Diabetes.” *Nature Communications* 9 (1). Springer Science; Business
+Media LLC.
+doi:[10.1038/s41467-018-04951-w](https://doi.org/10.1038/s41467-018-04951-w).
