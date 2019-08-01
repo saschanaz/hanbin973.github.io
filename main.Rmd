@@ -80,21 +80,17 @@ library(tidyverse)
 library(gridExtra)
 ```
 
-```{r, echo=FALSE, fig.align='center', warning=FALSE}
-stand <- function(x){
-    return((x-mean(x))/sd(x))
-}
-
+```{r, echo=FALSE, fig.align='center', warning=FALSE, message=FALSE}
 n <- 1000
 p <- 1/2
-x1 <- stand(rbinom(n, 2, p))
-x2 <- stand(rbinom(n, 10, p))
-x3 <- stand(rbinom(n, 100, p))
+x1 <- scale(rbinom(n, 2, p))
+x2 <- scale(rbinom(n, 10, p))
+x3 <- scale(rbinom(n, 100, p))
 df <- tibble(x1=x1, x2=x2, x3=x3)
 
-p1 <- ggplot(df) + geom_histogram(aes(x=x1, y=..density..), bins=31) + xlab('한 쌍의 대립유전자') + ylab('') + theme(axis.text.x=element_blank()) + theme(axis.text.y=element_blank())
-p2 <- ggplot(df) + geom_histogram(aes(x=x2, y=..density..), bins=31) + xlab('다섯 쌍의 대립유전자') + ylab('') + theme(axis.text.x=element_blank()) + theme(axis.text.y=element_blank())
-p3 <- ggplot(df) + geom_histogram(aes(x=x3, y=..density..), bins=31) + xlab('50 쌍의 대립유전자') + ylab('') + theme(axis.text.x=element_blank()) + theme(axis.text.y=element_blank())
+p1 <- ggplot(df) + geom_histogram(aes(x=x1, y=..density..)) + xlab('한 쌍의 대립유전자') + ylab('') + theme(axis.text.x=element_blank()) + theme(axis.text.y=element_blank())
+p2 <- ggplot(df) + geom_histogram(aes(x=x2, y=..density..)) + xlab('다섯 쌍의 대립유전자') + ylab('') + theme(axis.text.x=element_blank()) + theme(axis.text.y=element_blank())
+p3 <- ggplot(df) + geom_histogram(aes(x=x3, y=..density..)) + xlab('50 쌍의 대립유전자') + ylab('') + theme(axis.text.x=element_blank()) + theme(axis.text.y=element_blank())
 
 grid.arrange(p1, p2, p3, nrow=1)
 ```
