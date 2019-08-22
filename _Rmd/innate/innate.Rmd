@@ -1,0 +1,17 @@
+---
+title: "유전학의 관점에서 바라본 본성과 양육 (1)"
+author: "Hanbin Lee"
+output: md_document
+bibliography: innate.bib
+categories: genetics
+comments: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_knit$set(base.url = "/")
+knitr::opts_chunk$set(fig.path="assets/img/innate/")
+```
+
+
+
+## 참고문헌
