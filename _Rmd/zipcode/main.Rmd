@@ -24,7 +24,7 @@ knitr::opts_chunk$set(fig.path="assets/img/zipcode/")
 비극의 왕녀 '아나스타샤'의 이야기로도 유명한 로마노프 왕조는 영국 (빅토리아 여왕)에서 수입된(?) 혈우병 대립유전자에 의해 엄청나게 많은 혈우병 환자를 갖게 됐습니다.
 <p align="center">
 ```{r, fig.cap="로마노프 왕조의 가계도", fig.align="center", echo=FALSE}
-knitr::include_graphics("assets/img/bibtex/royal.png")
+knitr::include_graphics("assets/img/zipcode/royal.png")
 ```
 </p>
 
@@ -37,7 +37,7 @@ knitr::include_graphics("assets/img/bibtex/royal.png")
 비슷한 사례는 주걱턱이 많았던 합스부르크 왕가에서도 관찰할 수 있습니다.
 <p align="center">
 ```{r, fig.cap="합스부르크 왕가의 가계도", fig.align="center", echo=FALSE}
-knitr::include_graphics("assets/img/bibtex/habs.png")
+knitr::include_graphics("assets/img/zipcode/habs.png")
 ```
 </p>
 
@@ -112,7 +112,7 @@ knitr::include_graphics("assets/img/bibtex/habs.png")
 
 <p align="center">
 ```{r, fig.cap="교육수준에 영향을 미치는 유전적 변이의 분포", fig.align="center", echo=FALSE}
-knitr::include_graphics("assets/img/bibtex/bristol.png")
+knitr::include_graphics("assets/img/zipcode/bristol.png")
 ```
 </p>
 
