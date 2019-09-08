@@ -54,3 +54,5 @@ markdown: kramdown
 url: https://hanbin973.github.io/
 baseurl: /
 
+# plugins
+plugins: ['jekyll-sitemap']
