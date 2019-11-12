@@ -49,14 +49,16 @@ plainwhite:
 # Build settings
 remote_theme: hanbin973/plainwhite-jekyll 
 
-# base url
+
+# kramdown config
 markdown: kramdown
+kramdown:
+  parse_block_html: true
+
+# base url
 url: https://hanbin973.github.io/
 baseurl: /
 
 # plugins
 plugins: ['jekyll-sitemap']
 
-# kramdown config
-kramdown:
-  parse_block_html: true
