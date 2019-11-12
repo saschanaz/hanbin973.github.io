@@ -56,3 +56,7 @@ baseurl: /
 
 # plugins
 plugins: ['jekyll-sitemap']
+
+# kramdown config
+kramdown:
+    parse_block_html: true
