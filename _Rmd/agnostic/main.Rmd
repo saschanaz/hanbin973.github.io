@@ -1,15 +1,20 @@
 ---
 title: "Hypothesis-Free 개론"
 author: "Hanbin Lee"
-date: "2019년 3월 10일"
 output: md_document
 bibliography: agnostic.bib
+comments: true
+categories : "Statistical Genetics"
 ---
 
+
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_knit$set(base.url = "/")
+knitr::opts_chunk$set(fig.path="assets/img/agnostic/")
+knitr::opts_chunk$set(echo = TRUE, fig.align="center")
 ```
-* 이 문서는 Rmarkdown을 사용하여 작성됐습니다.
+
+오늘은 GWAS에 대해 간략히 알아보고자 합니다.
 
 # Hypothesis-Free의 필요성: Genetic Association Study를 중심으로
 
