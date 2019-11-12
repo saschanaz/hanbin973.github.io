@@ -52,7 +52,7 @@ O형이 다른 혈액형보다 청국장을 싫어한다면 이를 믿으시겠�
 그러나 이 허무맹랑한 주장을 통계적으로 입증할 방법이 있습니다.
 
 <center>
-![그림1. 국가별 혈액형 분포](img/bldtype.png)
+![그림1. 국가별 혈액형 분포](assets/img/agnostic/bldtype.png)
 
 </center>
 
@@ -157,7 +157,7 @@ GWAS는 게놈프로젝트와 뒤이어 진행된 반수체지도프로젝트(Ha
 아래 그림은 $r^2$이 DNA 상의 물리적 거리에 따라 어떻게 변하는지 보여주는 표입니다.
 
 <center>
-![LD와 물리적 거리 사이의 관계 [@Sodeland2011]](img/ld.png)
+![LD와 물리적 거리 사이의 관계 [@Sodeland2011]](assets/img/agnostic/ld.png)
 
 </center>
 
@@ -196,7 +196,7 @@ GWAS는 단일 연구로도 Publication Bias에 대한 저항성을 갖고 있�
 하단의 그림은 유전체 분석 플랫폼인 [Hail](https://hail.is/)의 Documentation에서 가져온 그림입니다.
 
 <center>
-![그림 2. Population substructure이 존재하는 GWAS 분석 결과를 요약한 Q-Q plot](img/hail1.png)
+![그림 2. Population substructure이 존재하는 GWAS 분석 결과를 요약한 Q-Q plot](assets/img/agnostic/hail1.png)
 
 </center>
 
@@ -215,7 +215,7 @@ Population substructure가 존재한다는 것을 알았다면 이를 고칠 방
 그럼 다시 Hail의 Documentation에 등장하는 그림으로 넘어갑시다.
 
 <center>
-![그림 3. Population substructure을 보정한 GWAS 분석 결과를 요약한 Q-Q plot](img/hail2.png)
+![그림 3. Population substructure을 보정한 GWAS 분석 결과를 요약한 Q-Q plot](assets/img/agnostic/hail2.png)
 
 </center>
 
@@ -246,7 +246,7 @@ GWAS의 생물학적 원리를 설명하는 단락에서 우리가 시행하는 
 아래는 조현병 GWAS에 LDSC를 실제로 적용한 사례입니다.
 
 <center>
-![그림 4. 조현병 GWAS 메타분석에 적용한 LDSC [@BulikSullivan2015]](img/ldreg.jpg)
+![그림 4. 조현병 GWAS 메타분석에 적용한 LDSC [@BulikSullivan2015]](assets/img/agnostic/ldreg.jpg)
 
 </center>
 
