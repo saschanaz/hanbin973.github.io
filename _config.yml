@@ -52,9 +52,6 @@ remote_theme: hanbin973/plainwhite-jekyll
 
 # kramdown config
 markdown: kramdown
-kramdown:
-  parse_block_html: true
-  parse_span_html: true 
 
 # base url
 url: https://hanbin973.github.io/
