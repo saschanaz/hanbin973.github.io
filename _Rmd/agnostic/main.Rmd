@@ -51,11 +51,9 @@ DNA를 읽을 수 있는 기술이 개발되었음에도 기술적인 난도와 
 O형이 다른 혈액형보다 청국장을 싫어한다면 이를 믿으시겠습니까?
 그러나 이 허무맹랑한 주장을 통계적으로 입증할 방법이 있습니다.
 
-<center>
-<li  markdown="1">
-![그림1. 국가별 혈액형 분포](assets/img/agnostic/bldtype.png)
-</li>
-</center>
+```{r, fig.cap="그림1. 국가별 혈액형 분포", fig.align="center", echo=FALSE}
+knitr::include_graphics("assets/img/agnostic/bldtype.png")
+```
 
 위 사진은 국가별 혈액형 분포를 보여주고 있습니다.
 출처는 TV 예능이니 예시를 위한 Toy Model 정도로만 생각해주세요.
@@ -157,11 +155,9 @@ GWAS는 게놈프로젝트와 뒤이어 진행된 반수체지도프로젝트(Ha
 이를 종합해서 Linkage Disequilibrium라고 부르는데 보통 상관계수 $r^2$를 기준으로 측정합니다.
 아래 그림은 $r^2$이 DNA 상의 물리적 거리에 따라 어떻게 변하는지 보여주는 표입니다.
 
-<center>
-<li  markdown="1">
-![LD와 물리적 거리 사이의 관계 [@Sodeland2011]](assets/img/agnostic/ld.png)
-</li>
-</center>
+```{r, fig.cap="LD와 물리적 거리 사이의 관계", fig.align="center", echo=FALSE}
+knitr::include_graphics("assets/img/agnostic/ld.png")
+```
 
 이를 모두 종합하면 한 염색체 안에서도 작은 소규모 지역들이 있어서 그 안에서는 뭉쳐다니는데 다른 지역끼리는 독립적으로 유전될 것임을 추측할 수 있습니다.
 따라서 이 소규모 지역을 Box라고 부르면 개개인의 염색체는 서로 다른 Box의 조합인데 이를 *반수체(Haploid)*라고 부릅니다.
@@ -197,11 +193,9 @@ GWAS는 단일 연구로도 Publication Bias에 대한 저항성을 갖고 있�
 
 하단의 그림은 유전체 분석 플랫폼인 [Hail](https://hail.is/)의 Documentation에서 가져온 그림입니다.
 
-<center>
-<li  markdown="1">
-![그림 2. Population substructure이 존재하는 GWAS 분석 결과를 요약한 Q-Q plot](assets/img/agnostic/hail1.png)
-</li>
-</center>
+```{r, fig.cap="그림 2. Population substructure이 존재하는 GWAS 분석 결과를 요약한 Q-Q plot", fig.align="center", echo=FALSE}
+knitr::include_graphics("assets/img/agnostic/hail1.png")
+```
 
 Q-Q plot은 각각의 유전자에 대한 검정의 실제 p-value를 $y$-축, 영 가설 하에서의 p-value의 기댓값을 $x$-축에 두고 점을 찍은 그림입니다.
 우리가 기대하는 것처럼 대부분의 유전자가 형질과 상관이 없다면 대부분의 점은 빨간색 선 위에 올라가야 합니다.
@@ -217,11 +211,9 @@ Population substructure가 존재한다는 것을 알았다면 이를 고칠 방
 최근 연구에 따르면 PCA 역시 상황에 따라서 몇 가지 한계가 있긴 합니다[@Berg2018].
 그럼 다시 Hail의 Documentation에 등장하는 그림으로 넘어갑시다.
 
-<center>
-<li  markdown="1">
-![그림 3. Population substructure을 보정한 GWAS 분석 결과를 요약한 Q-Q plot](assets/img/agnostic/hail2.png)
-</li>
-</center>
+```{r, fig.cap="그림 3. Population substructure을 보정한 GWAS 분석 결과를 요약한 Q-Q plot", fig.align="center", echo=FALSE}
+knitr::include_graphics("assets/img/agnostic/hail2.png")
+```
 
 그림 2와 다르게 그림 3의 경우 검은점들이 대부분 붉은선 위에 올라가 있는 것을 관찰할 수 있습니다.
 우리가 기대했던 것과 일치하는 결과입니다.
@@ -249,12 +241,9 @@ GWAS의 생물학적 원리를 설명하는 단락에서 우리가 시행하는 
 이를 바탕으로 population structure의 존재를 확인하여 population structure에 의한 가짜신호를 전체 신호에서 정량적으로 분리할 수 있는 것입니다.
 아래는 조현병 GWAS에 LDSC를 실제로 적용한 사례입니다.
 
-<center>
-<li  markdown="1">
-![그림 4. 조현병 GWAS 메타분석에 적용한 LDSC [@BulikSullivan2015]](assets/img/agnostic/ldreg.jpg)
-</li>
-</center>
-
+```{r, fig.cap="그림 4. 조현병 GWAS 메타분석에 적용한 LDSC [@BulikSullivan2015]", fig.align="center", echo=FALSE}
+knitr::include_graphics("assets/img/agnostic/ldreg.jpg")
+```
 
 #### 그 외
 Genomic Control, Linear Mixed Model 등을 활용한 방법이 있으나 제가 공부가 부족한 관계로 더 공부하고 나면 업데이트 하겠습니다.
