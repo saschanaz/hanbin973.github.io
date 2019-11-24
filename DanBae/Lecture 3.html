@@ -13093,7 +13093,7 @@ Using the data from the national crime statistic, the below code shows that doct
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[49]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># import required libraries</span>
@@ -13175,7 +13175,97 @@ After stratifying sex, the incidence of sex crimes droped from 2 to 1.41, which 
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Collider-Bias">Collider Bias<a class="anchor-link" href="#Collider-Bias">&#182;</a></h2><p>TBA</p>
+<h2 id="Collider-Bias">Collider Bias<a class="anchor-link" href="#Collider-Bias">&#182;</a></h2><p>Just like confounding, collider is a common bias introduced to everyday life decisions.
+The name 'collider' comes from the shape of the following DAG.</p>
+<p><img src="Images/collider.png" alt="collider">
+<em>Figure: Exposure (E) and Outcome (O) collides at Z</em></p>
+<p>We see that the directions of the arrows are flipped compared to the DAG of confounders.
+Opposite to the case of confounding where adjustement of the confounder is required to obtain the right answer,
+collider variables should not be adjusted.</p>
+<p>A research from 1929 is a classic example that ended up with a false protective effect of tuberculosis on cancer.</p>
+<p><img src="Images/tuber.png" alt="Cancer Tuberculosis">
+<em>Figure: Pearl (1928) asserted that tuberculosis has a protective effect on cancer</em></p>
+<p>Both tuberculosis and cancer increases the risk of hospitalization.
+In other words, people with tuberculosis has a higher incidence of being hospitalized compared to people without them.
+Therefore, if we count only on people who are hospitalized, those with tuberculosis has a smaller chance of having cancer.</p>
+<p>In this example, tuberculosis is the exposure and cancer is the outcome.
+Most importantly, being hospitalized is the collider.
+Thus, carrying out an analysis only on hospitalzed patients, which is in this case adjusting for the collider, resulted in a false association between cancer and tuberculosis.</p>
+<p>For a better understanding, let's consider a toy example.
+Suppose that there are two baskets on the table where one contains contaminated apples and the other contains contaminated pears.
+People who were walking by the desk will take an apple or a pear or both with certain amount of probability, in which that will make them sick, but suppose that eating an apple and eating a pear are indpenedent.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[57]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">stats</span>
+
+<span class="c1"># length n dataframe</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">5000</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;pear&#39;</span><span class="p">,</span> <span class="s1">&#39;apple&#39;</span><span class="p">,</span> <span class="s1">&#39;sick&#39;</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+
+<span class="c1"># assign pear, apple and sick</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;pear&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">binomial</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">p</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="n">n</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;apple&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">binomial</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">p</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="n">n</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;sick&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">binomial</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">p</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="mi">3</span> <span class="o">*</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;pear&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="o">/</span><span class="mi">3</span> <span class="o">*</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;apple&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="o">/</span><span class="mi">6</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="n">n</span><span class="p">)</span>
+
+<span class="c1"># contingency table apple x pear</span>
+<span class="n">ct</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;pear&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;apple&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">stats</span><span class="o">.</span><span class="n">fisher_exact</span><span class="p">(</span><span class="n">ct</span><span class="p">))</span>
+
+<span class="c1"># contingency table apple x pear with adjustment</span>
+<span class="n">df_sick</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;sick&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]</span>
+<span class="n">ct_sick</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">df_sick</span><span class="p">[</span><span class="s1">&#39;pear&#39;</span><span class="p">],</span> <span class="n">df_sick</span><span class="p">[</span><span class="s1">&#39;apple&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">stats</span><span class="o">.</span><span class="n">fisher_exact</span><span class="p">(</span><span class="n">ct_sick</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>(1.0542785254750193, 0.3507940715073325)
+(0.5598214285714286, 3.5568119965645703e-10)
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="A-negative-association-between-eating-an-apple-and-a-pear-was-observed!">A negative association between eating an apple and a pear was observed!<a class="anchor-link" href="#A-negative-association-between-eating-an-apple-and-a-pear-was-observed!">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Instrumental-variable-:-occupational-participation-of-women-and-number-of-children">Instrumental variable : occupational participation of women and number of children<a class="anchor-link" href="#Instrumental-variable-:-occupational-participation-of-women-and-number-of-children">&#182;</a></h2><p>We have previously learned about the cases when the error term $\epsilon$ and the exposure $X$ is corrleated.
+$$ Y= X \beta + \epsilon$$</p>
+<p>We have also learned that the OLS estimates under such conditions are biased.
+As an alternative there is a method called the <em>instrumental variable estimation</em> which employs a additional variable $Z$ called the <em>instrumental variable</em> that is correlated to $X$ but not $\epsilon$ to overcome such situations.</p>
+<p><img src="Images/iv.png" alt="IV"></p>
+<p>In South Korea, parents prefer boys over girls which results in an increased number of total children per household.
+Therefore, the sex of the first child of each household is correlated to the total number of childer per household but not correlated to any $\epsilon$ since sex of a child is determined by pure chance at fertilization.
+Therefore, using $Z$ as an IV, one can estimate the causal effect of number of children per household on labor market participation of women.</p>
 
 </div>
 </div>
